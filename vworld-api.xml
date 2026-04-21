@@ -1,0 +1,1479 @@
+<?xml version="1.0" encoding="UTF-8"?><WMS_Capabilities xmlns="http://www.opengis.net/wms" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.3.0" xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd">
+<!-- Service Metadata -->
+<Service><Name>WMS</Name><Title>VWORLD</Title><Abstract>VWORLD Web Map Server</Abstract><KeywordList><Keyword>VWORLD</Keyword><Keyword>VWORLD_WMS</Keyword></KeywordList>
+<OnlineResource xlink:href="http://api.vworld.kr/req/wms?SERVICE=WMS&amp;KEY=AF21397D-DE92-3D8E-8B09-6D17A9FB3EE7&amp;DOMAIN=localhost" xlink:type="simple"/><Fees>none</Fees><AccessConstraints>none</AccessConstraints><LayerLimit>100</LayerLimit><MaxWidth>2048</MaxWidth><MaxHeight>2048</MaxHeight></Service>
+<Capability>
+	<Request>
+		<GetCapabilities>
+			<Format>text/xml</Format>
+			<DCPType>
+				<HTTP>
+					<Get>
+						<OnlineResource xlink:href="http://api.vworld.kr/req/wms?SERVICE=WMS&amp;KEY=AF21397D-DE92-3D8E-8B09-6D17A9FB3EE7&amp;DOMAIN=localhost" xlink:type="simple"/>
+					</Get>
+				</HTTP>
+			</DCPType>
+		</GetCapabilities>
+		<GetMap>
+			<Format>image/png</Format>
+			<Format>image/jpeg</Format>
+			<Format>image/gif</Format>
+			<DCPType>
+				<HTTP>
+					<Get>
+						<OnlineResource xlink:href="http://api.vworld.kr/req/wms?SERVICE=WMS&amp;KEY=AF21397D-DE92-3D8E-8B09-6D17A9FB3EE7&amp;DOMAIN=localhost" xlink:type="simple"/>
+					</Get>
+				</HTTP>
+			</DCPType>
+		</GetMap>
+		<GetFeatureInfo>
+			<Format>text/xml</Format>
+			<DCPType>
+				<HTTP>
+					<Get>
+						<OnlineResource xlink:href="http://api.vworld.kr/req/wms?SERVICE=WMS&amp;KEY=AF21397D-DE92-3D8E-8B09-6D17A9FB3EE7&amp;DOMAIN=localhost" xlink:type="simple"/>
+					</Get>
+				</HTTP>
+			</DCPType>
+		</GetFeatureInfo>
+	</Request>
+	<UserDefinedSymbolization InlineFeature="1" RemoteWFS="1" SupportSLD="1" UserLayer="1" UserStyle="1"/>
+	<Exception>
+		<Format>XML</Format>
+	</Exception>
+	<Layer>
+		<Title>VWORLD Map Server</Title>
+		<CRS>EPSG:4326</CRS>
+		<CRS>EPSG:3857</CRS>
+		<CRS>EPSG:900913</CRS>
+		<CRS>EPSG:4019</CRS>
+		<CRS>EPSG:5174</CRS>
+		<CRS>EPSG:5179</CRS>
+		<CRS>EPSG:5180</CRS>
+		<CRS>EPSG:5181</CRS>
+		<CRS>EPSG:5182</CRS>
+		<CRS>EPSG:5183</CRS>
+		<CRS>EPSG:5184</CRS>
+		<CRS>EPSG:5185</CRS>
+		<CRS>EPSG:5186</CRS>
+		<CRS>EPSG:5187</CRS>
+		<CRS>EPSG:5188</CRS>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aistmac</Name><Title>접근관제구역</Title><Abstract>접근관제구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aistmac</Name>
+				<Title>lt_c_aistmac</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_up201</Name><Title>재해위험지구</Title><Abstract>재해위험지구</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_up201</Name>
+				<Title>lt_c_up201</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_lhzone</Name><Title>사업지구경계도</Title><Abstract>사업지구경계도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_lhzone</Name>
+				<Title>lt_c_lhzone</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aisdngc</Name><Title>위험구역</Title><Abstract>위험구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aisdngc</Name>
+				<Title>lt_c_aisdngc</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgisnpdo</Name><Title>도립자연공원</Title><Abstract>도립자연공원</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgisnpdo</Name>
+				<Title>lt_c_wgisnpdo</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_upisuq153</Name><Title>도시계획(공간시설)</Title><Abstract>도시계획(공간시설)</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_upisuq153</Name>
+				<Title>lt_c_upisuq153</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_landinfobasemap</Name><Title>LX맵</Title><Abstract>LX맵</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_landinfobasemap</Name>
+				<Title>lt_c_landinfobasemap</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgisiedosi</Name><Title>첨단산업단지</Title><Abstract>첨단산업단지</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgisiedosi</Name>
+				<Title>lt_c_wgisiedosi</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_desch</Name><Title>초등학교통학구역</Title><Abstract>초등학교통학구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_desch</Name>
+				<Title>lt_c_desch</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_a3drivewaysection</Name><Title>차도구간</Title><Abstract>차도구간</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_a3drivewaysection</Name>
+				<Title>lt_c_a3drivewaysection</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_aisvfrpath</Name><Title>시계비행로</Title><Abstract>시계비행로</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_aisvfrpath</Name>
+				<Title>lt_l_aisvfrpath</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_aisvfrpath</Name><Title>시계비행로</Title><Abstract>시계비행로</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_aisvfrpath</Name>
+				<Title>lt_p_aisvfrpath</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_moctnode</Name><Title>교통노드</Title><Abstract>교통노드</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_moctnode</Name>
+				<Title>lt_p_moctnode</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aisfirc</Name><Title>비행정보구역</Title><Abstract>비행정보구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aisfirc</Name>
+				<Title>lt_c_aisfirc</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_um301</Name><Title>대기환경규제지역</Title><Abstract>대기환경규제지역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_um301</Name>
+				<Title>lt_c_um301</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_dmsch</Name><Title>중학교학교군</Title><Abstract>중학교학교군</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_dmsch</Name>
+				<Title>lt_c_dmsch</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_dgmainbiz</Name><Title>주요상권</Title><Abstract>주요상권</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_dgmainbiz</Name>
+				<Title>lt_c_dgmainbiz</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_frstclimb</Name><Title>등산로</Title><Abstract>등산로</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_frstclimb</Name>
+				<Title>lt_l_frstclimb</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_climball</Name><Title>등산로</Title><Abstract>등산로</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_climball</Name>
+				<Title>lt_p_climball</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq111</Name><Title>도시지역</Title><Abstract>도시지역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq111</Name>
+				<Title>lt_c_uq111</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq130</Name><Title>특정용도제한지구</Title><Abstract>특정용도제한지구</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq130</Name>
+				<Title>lt_c_uq130</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_adsido</Name><Title>광역시도</Title><Abstract>광역시도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_adsido</Name>
+				<Title>lt_c_adsido</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_c1trafficlight</Name><Title>신호등</Title><Abstract>신호등</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_c1trafficlight</Name>
+				<Title>lt_p_c1trafficlight</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_upisuq158</Name><Title>도시계획(환경기초시설)</Title><Abstract>도시계획(환경기초시설)</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_upisuq158</Name>
+				<Title>lt_c_upisuq158</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_tradsijang</Name><Title>전통시장현황</Title><Abstract>전통시장현황</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_tradsijang</Name>
+				<Title>lt_p_tradsijang</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_damyoj</Name><Title>단지시설용지</Title><Abstract>단지시설용지</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_damyoj</Name>
+				<Title>lt_c_damyoj</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_upisuq151</Name><Title>도시계획(도로)</Title><Abstract>도시계획(도로)</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_upisuq151</Name>
+				<Title>lt_c_upisuq151</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_upisuq152</Name><Title>도시계획(교통시설)</Title><Abstract>도시계획(교통시설)</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_upisuq152</Name>
+				<Title>lt_c_upisuq152</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wkmbbsn</Name><Title>대권역</Title><Abstract>대권역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wkmbbsn</Name>
+				<Title>lt_c_wkmbbsn</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aisfldc</Name><Title>경량항공기이착륙장</Title><Abstract>경량항공기이착륙장</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aisfldc</Name>
+				<Title>lt_c_aisfldc</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgisnpgun</Name><Title>군립자연공원</Title><Abstract>군립자연공원</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgisnpgun</Name>
+				<Title>lt_c_wgisnpgun</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq126</Name><Title>보호지구</Title><Abstract>보호지구</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq126</Name>
+				<Title>lt_c_uq126</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_asitsoildra</Name><Title>배수등급</Title><Abstract>배수등급</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_asitsoildra</Name>
+				<Title>lt_c_asitsoildra</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uo601</Name><Title>관광지</Title><Abstract>관광지</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uo601</Name>
+				<Title>lt_c_uo601</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgispl2abs</Name><Title>(2차) 보전연안해역</Title><Abstract>(2차) 보전연안해역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgispl2abs</Name>
+				<Title>lt_c_wgispl2abs</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uh701</Name><Title>벤처기업육성지역</Title><Abstract>벤처기업육성지역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uh701</Name>
+				<Title>lt_c_uh701</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_ud601</Name><Title>주거환경개선지구도</Title><Abstract>주거환경개선지구도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_ud601</Name>
+				<Title>lt_c_ud601</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_eadist</Name><Title>교육행정구역</Title><Abstract>교육행정구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_eadist</Name>
+				<Title>lt_c_eadist</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lp_pa_cbnd_bubun</Name><Title>연속지적도</Title><Abstract>연속지적도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lp_pa_cbnd_bubun</Name>
+				<Title>lp_pa_cbnd_bubun</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lp_pa_cbnd_bonbun</Name><Title>연속지적도</Title><Abstract>연속지적도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lp_pa_cbnd_bonbun</Name>
+				<Title>lp_pa_cbnd_bonbun</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uo101</Name><Title>교육환경보호구역</Title><Abstract>교육환경보호구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uo101</Name>
+				<Title>lt_c_uo101</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_weissitemd</Name><Title>수질측정망농업용수지점</Title><Abstract>수질측정망농업용수지점</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_weissitemd</Name>
+				<Title>lt_p_weissitemd</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_agrixue101</Name><Title>농업진흥지역도</Title><Abstract>농업진흥지역도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_agrixue101</Name>
+				<Title>lt_c_agrixue101</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq114</Name><Title>자연환경보전지역</Title><Abstract>자연환경보전지역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq114</Name>
+				<Title>lt_c_uq114</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_upisuq156</Name><Title>도시계획(방재시설)</Title><Abstract>도시계획(방재시설)</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_upisuq156</Name>
+				<Title>lt_c_upisuq156</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aisaltc</Name><Title>경계구역</Title><Abstract>경계구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aisaltc</Name>
+				<Title>lt_c_aisaltc</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uo501</Name><Title>전통사찰보존</Title><Abstract>전통사찰보존</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uo501</Name>
+				<Title>lt_c_uo501</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_smalllibrary</Name><Title>작은도서관</Title><Abstract>작은도서관</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_smalllibrary</Name>
+				<Title>lt_p_smalllibrary</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aisctrc</Name><Title>관제권</Title><Abstract>관제권</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aisctrc</Name>
+				<Title>lt_c_aisctrc</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_um000</Name><Title>가축사육제한구역</Title><Abstract>가축사육제한구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_um000</Name>
+				<Title>lt_c_um000</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uf151</Name><Title>산림보호구역</Title><Abstract>산림보호구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uf151</Name>
+				<Title>lt_c_uf151</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uh501</Name><Title>유통단지</Title><Abstract>유통단지</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uh501</Name>
+				<Title>lt_c_uh501</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_b2surfacelinemark</Name><Title>노면선표시</Title><Abstract>노면선표시</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_b2surfacelinemark</Name>
+				<Title>lt_l_b2surfacelinemark</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_fsdifrsts</Name><Title>산림입지도</Title><Abstract>산림입지도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_fsdifrsts</Name>
+				<Title>lt_c_fsdifrsts</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_bycracks</Name><Title>자전거보관소</Title><Abstract>자전거보관소</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_bycracks</Name>
+				<Title>lt_p_bycracks</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_agrixue102</Name><Title>영농여건불리농지도</Title><Abstract>영농여건불리농지도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_agrixue102</Name>
+				<Title>lt_c_agrixue102</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_a2link</Name><Title>주행경로링크</Title><Abstract>주행경로링크</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_a2link</Name>
+				<Title>lt_l_a2link</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_adsigg</Name><Title>시군구</Title><Abstract>시군구</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_adsigg</Name>
+				<Title>lt_c_adsigg</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_weissitema</Name><Title>수질측정망하천수지점</Title><Abstract>수질측정망하천수지점</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_weissitema</Name>
+				<Title>lt_p_weissitema</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_upisuq155</Name><Title>도시계획(공공문화체육시설)</Title><Abstract>도시계획(공공문화체육시설)</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_upisuq155</Name>
+				<Title>lt_c_upisuq155</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_um710</Name><Title>상수원보호</Title><Abstract>상수원보호</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_um710</Name>
+				<Title>lt_c_um710</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aiscatc</Name><Title>훈련구역</Title><Abstract>훈련구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aiscatc</Name>
+				<Title>lt_c_aiscatc</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_b3surfacemark</Name><Title>노면표시</Title><Abstract>노면표시</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_b3surfacemark</Name>
+				<Title>lt_c_b3surfacemark</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_a5parkinglot</Name><Title>주차면</Title><Abstract>주차면</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_a5parkinglot</Name>
+				<Title>lt_c_a5parkinglot</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgisarwet</Name><Title>습지보호구역</Title><Abstract>습지보호구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgisarwet</Name>
+				<Title>lt_c_wgisarwet</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_adri</Name><Title>리</Title><Abstract>리</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_adri</Name>
+				<Title>lt_c_adri</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgisieilban</Name><Title>일반산업단지</Title><Abstract>일반산업단지</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgisieilban</Name>
+				<Title>lt_c_wgisieilban</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aisrflc</Name><Title>공중급유구역</Title><Abstract>공중급유구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aisrflc</Name>
+				<Title>lt_c_aisrflc</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wkmstrm</Name><Title>하천망</Title><Abstract>하천망</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wkmstrm</Name>
+				<Title>lt_c_wkmstrm</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_um901</Name><Title>습지보호지역</Title><Abstract>습지보호지역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_um901</Name>
+				<Title>lt_c_um901</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_mgprtfb</Name><Title>노인복지시설</Title><Abstract>노인복지시설</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_mgprtfb</Name>
+				<Title>lt_p_mgprtfb</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_mgprtfd</Name><Title>기타보호시설</Title><Abstract>기타보호시설</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_mgprtfd</Name>
+				<Title>lt_p_mgprtfd</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_gimsec</Name><Title>전기전도도</Title><Abstract>전기전도도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_gimsec</Name>
+				<Title>lt_l_gimsec</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_upisuq159</Name><Title>도시계획(기타기반시설)</Title><Abstract>도시계획(기타기반시설)</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_upisuq159</Name>
+				<Title>lt_c_upisuq159</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgispl2use</Name><Title>(2차) 이용연안해역</Title><Abstract>(2차) 이용연안해역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgispl2use</Name>
+				<Title>lt_c_wgispl2use</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_asitsoildep</Name><Title>유효토심</Title><Abstract>유효토심</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_asitsoildep</Name>
+				<Title>lt_c_asitsoildep</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_upisuq171</Name><Title>개발행위허가제한지역</Title><Abstract>개발행위허가제한지역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_upisuq171</Name>
+				<Title>lt_c_upisuq171</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_nsnmssitenm</Name><Title>국가지명</Title><Abstract>국가지명</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_nsnmssitenm</Name>
+				<Title>lt_p_nsnmssitenm</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq121</Name><Title>경관지구</Title><Abstract>경관지구</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq121</Name>
+				<Title>lt_c_uq121</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_spbd</Name><Title>도로명주소건물</Title><Abstract>도로명주소건물</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_spbd</Name>
+				<Title>lt_c_spbd</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_ud610</Name><Title>국민임대주택</Title><Abstract>국민임대주택</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_ud610</Name>
+				<Title>lt_c_ud610</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_gimslinea</Name><Title>지질구조선</Title><Abstract>지질구조선</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_gimslinea</Name>
+				<Title>lt_l_gimslinea</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aisresc</Name><Title>비행제한구역</Title><Abstract>비행제한구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aisresc</Name>
+				<Title>lt_c_aisresc</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_b1safetysign</Name><Title>안전표지</Title><Abstract>안전표지</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_b1safetysign</Name>
+				<Title>lt_c_b1safetysign</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_aispath</Name><Title>항공로</Title><Abstract>항공로</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_aispath</Name>
+				<Title>lt_l_aispath</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aistemp</Name><Title>임시비행금지공역</Title><Abstract>임시비행금지공역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aistemp</Name>
+				<Title>lt_c_aistemp</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq113</Name><Title>농림지역</Title><Abstract>농림지역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq113</Name>
+				<Title>lt_c_uq113</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_aisrouteu</Name><Title>제한고도</Title><Abstract>제한고도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_aisrouteu</Name>
+				<Title>lt_l_aisrouteu</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aisatzc</Name><Title>비행장교통구역</Title><Abstract>비행장교통구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aisatzc</Name>
+				<Title>lt_c_aisatzc</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq124</Name><Title>방화지구</Title><Abstract>방화지구</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq124</Name>
+				<Title>lt_c_uq124</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq141</Name><Title>국토계획구역</Title><Abstract>국토계획구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq141</Name>
+				<Title>lt_c_uq141</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wkmmbsn</Name><Title>중권역</Title><Abstract>중권역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wkmmbsn</Name>
+				<Title>lt_c_wkmmbsn</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_ademd</Name><Title>읍면동</Title><Abstract>읍면동</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_ademd</Name>
+				<Title>lt_c_ademd</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_upisuq154</Name><Title>도시계획(유통공급시설)</Title><Abstract>도시계획(유통공급시설)</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_upisuq154</Name>
+				<Title>lt_c_upisuq154</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uj401</Name><Title>온천지구</Title><Abstract>온천지구</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uj401</Name>
+				<Title>lt_c_uj401</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_gimsscs</Name><Title>토양도</Title><Abstract>토양도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_gimsscs</Name>
+				<Title>lt_c_gimsscs</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_ud620</Name><Title>보금자리주택</Title><Abstract>보금자리주택</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_ud620</Name>
+				<Title>lt_c_ud620</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq162</Name><Title>도시자연공원구역</Title><Abstract>도시자연공원구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq162</Name>
+				<Title>lt_c_uq162</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uf602</Name><Title>임업 및 산촌 진흥권역</Title><Abstract>임업 및 산촌 진흥권역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uf602</Name>
+				<Title>lt_c_uf602</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_utiscctv</Name><Title>교통CCTV</Title><Abstract>교통CCTV</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_utiscctv</Name>
+				<Title>lt_p_utiscctv</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgisienong</Name><Title>농공단지</Title><Abstract>농공단지</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgisienong</Name>
+				<Title>lt_c_wgisienong</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_c3vehicleprotectionsafety</Name><Title>차량방호안전시설</Title><Abstract>차량방호안전시설</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_c3vehicleprotectionsafety</Name>
+				<Title>lt_l_c3vehicleprotectionsafety</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_damdan</Name><Title>단지경계</Title><Abstract>단지경계</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_damdan</Name>
+				<Title>lt_c_damdan</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_c4speedbump</Name><Title>과속방지턱</Title><Abstract>과속방지턱</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_c4speedbump</Name>
+				<Title>lt_c_c4speedbump</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_dgmuseumart</Name><Title>박물관미술관</Title><Abstract>박물관미술관</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_dgmuseumart</Name>
+				<Title>lt_p_dgmuseumart</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_gimshydro</Name><Title>수문지질단위</Title><Abstract>수문지질단위</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_gimshydro</Name>
+				<Title>lt_c_gimshydro</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_um221</Name><Title>야생동식물보호</Title><Abstract>야생동식물보호</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_um221</Name>
+				<Title>lt_c_um221</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_gimslinea</Name><Title>지질구조밀도</Title><Abstract>지질구조밀도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_gimslinea</Name>
+				<Title>lt_c_gimslinea</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_gimsstiff</Name><Title>수질다이어그램</Title><Abstract>수질다이어그램</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_gimsstiff</Name>
+				<Title>lt_c_gimsstiff</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_kfdrssigugrade</Name><Title>산불위험예측지도</Title><Abstract>산불위험예측지도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_kfdrssigugrade</Name>
+				<Title>lt_c_kfdrssigugrade</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_up401</Name><Title>급경사재해예방지역</Title><Abstract>급경사재해예방지역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_up401</Name>
+				<Title>lt_c_up401</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_sprd</Name><Title>도로명주소도로</Title><Abstract>도로명주소도로</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_sprd</Name>
+				<Title>lt_l_sprd</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgispl2con</Name><Title>(2차) 관리연안해역</Title><Abstract>(2차) 관리연안해역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgispl2con</Name>
+				<Title>lt_c_wgispl2con</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_a4subsidiarysection</Name><Title>보도구간</Title><Abstract>보도구간</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_a4subsidiarysection</Name>
+				<Title>lt_c_a4subsidiarysection</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uh402</Name><Title>자유무역지역지정및운영</Title><Abstract>자유무역지역지정및운영</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uh402</Name>
+				<Title>lt_c_uh402</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uo301</Name><Title>국가유산 지정/보호구역</Title><Abstract>국가유산 지정/보호구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uo301</Name>
+				<Title>lt_c_uo301</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aisdronezone</Name><Title>드론시범사업구역</Title><Abstract>드론시범사업구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aisdronezone</Name>
+				<Title>lt_c_aisdronezone</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_c2kilopost</Name><Title>킬로포스트</Title><Abstract>킬로포스트</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_c2kilopost</Name>
+				<Title>lt_p_c2kilopost</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_gimsfault</Name><Title>단층</Title><Abstract>단층</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_gimsfault</Name>
+				<Title>lt_l_gimsfault</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_gimspoten</Name><Title>지하수등수위선</Title><Abstract>지하수등수위선</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_gimspoten</Name>
+				<Title>lt_l_gimspoten</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aisacmc</Name><Title>공중전투기동훈련장</Title><Abstract>공중전투기동훈련장</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aisacmc</Name>
+				<Title>lt_c_aisacmc</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_damyuch</Name><Title>단지유치업종</Title><Abstract>단지유치업종</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_damyuch</Name>
+				<Title>lt_c_damyuch</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_aishcstrip</Name><Title>헬기장</Title><Abstract>헬기장</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_aishcstrip</Name>
+				<Title>lt_p_aishcstrip</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_tfismpa</Name><Title>해양보호구역</Title><Abstract>해양보호구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_tfismpa</Name>
+				<Title>lt_c_tfismpa</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_damyod</Name><Title>단지용도지역</Title><Abstract>단지용도지역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_damyod</Name>
+				<Title>lt_c_damyod</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_gimsdepth</Name><Title>지하수등수심선</Title><Abstract>지하수등수심선</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_gimsdepth</Name>
+				<Title>lt_l_gimsdepth</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_ub901</Name><Title>시장정비구역</Title><Abstract>시장정비구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_ub901</Name>
+				<Title>lt_c_ub901</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_asitsurston</Name><Title>자갈함량</Title><Abstract>자갈함량</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_asitsurston</Name>
+				<Title>lt_c_asitsurston</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_dgtouristinfo</Name><Title>관광안내소</Title><Abstract>관광안내소</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_dgtouristinfo</Name>
+				<Title>lt_p_dgtouristinfo</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uf901</Name><Title>백두대간보호지역</Title><Abstract>백두대간보호지역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uf901</Name>
+				<Title>lt_c_uf901</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_asitdeepsoil</Name><Title>심토토성</Title><Abstract>심토토성</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_asitdeepsoil</Name>
+				<Title>lt_c_asitdeepsoil</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_sgisgwchg</Name><Title>지하수측정망(오염우려지역)</Title><Abstract>지하수측정망(오염우려지역)</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_sgisgwchg</Name>
+				<Title>lt_p_sgisgwchg</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_aissearchl</Name><Title>수색비행장비행구역</Title><Abstract>수색비행장비행구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_aissearchl</Name>
+				<Title>lt_l_aissearchl</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_aissearchp</Name><Title>수색비행장비행구역</Title><Abstract>수색비행장비행구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_aissearchp</Name>
+				<Title>lt_p_aissearchp</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_mgprtfc</Name><Title>아동복지시설</Title><Abstract>아동복지시설</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_mgprtfc</Name>
+				<Title>lt_p_mgprtfc</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgisrecomp</Name><Title>공유수면매립준공</Title><Abstract>공유수면매립준공</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgisrecomp</Name>
+				<Title>lt_c_wgisrecomp</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_upisuq157</Name><Title>도시계획(보건위생시설)</Title><Abstract>도시계획(보건위생시설)</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_upisuq157</Name>
+				<Title>lt_c_upisuq157</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_weissiteme</Name><Title>수질측정망공단배수지점</Title><Abstract>수질측정망공단배수지점</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_weissiteme</Name>
+				<Title>lt_p_weissiteme</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_c5heightbarrier</Name><Title>높이장애물</Title><Abstract>높이장애물</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_c5heightbarrier</Name>
+				<Title>lt_l_c5heightbarrier</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aismoac</Name><Title>군작전구역</Title><Abstract>군작전구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aismoac</Name>
+				<Title>lt_c_aismoac</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aisadzc</Name><Title>방공식별구역</Title><Abstract>방공식별구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aisadzc</Name>
+				<Title>lt_c_aisadzc</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq125</Name><Title>방재지구</Title><Abstract>방재지구</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq125</Name>
+				<Title>lt_c_uq125</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_sgisgolf</Name><Title>골프장현황도</Title><Abstract>골프장현황도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_sgisgolf</Name>
+				<Title>lt_p_sgisgolf</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aisuac</Name><Title>(UA)초경량비행장치공역</Title><Abstract>(UA)초경량비행장치공역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aisuac</Name>
+				<Title>lt_c_aisuac</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_moctlink</Name><Title>교통링크</Title><Abstract>교통링크</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_moctlink</Name>
+				<Title>lt_l_moctlink</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_aisprhc</Name><Title>비행금지구역</Title><Abstract>비행금지구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_aisprhc</Name>
+				<Title>lt_c_aisprhc</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_upisuq161</Name><Title>지구단위계획</Title><Abstract>지구단위계획</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_upisuq161</Name>
+				<Title>lt_c_upisuq161</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_mgprtfa</Name><Title>아동안전지킴이집</Title><Abstract>아동안전지킴이집</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_mgprtfa</Name>
+				<Title>lt_p_mgprtfa</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_weissitemf</Name><Title>수질측정망도시관류지점</Title><Abstract>수질측정망도시관류지점</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_weissitemf</Name>
+				<Title>lt_p_weissitemf</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_ud801</Name><Title>개발제한구역</Title><Abstract>개발제한구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_ud801</Name>
+				<Title>lt_c_ud801</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_b1safetysign</Name><Title>안전표지(점)</Title><Abstract>안전표지(점)</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_b1safetysign</Name>
+				<Title>lt_p_b1safetysign</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq123</Name><Title>고도지구</Title><Abstract>고도지구</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq123</Name>
+				<Title>lt_c_uq123</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wkmsbsn</Name><Title>표준권역</Title><Abstract>표준권역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wkmsbsn</Name>
+				<Title>lt_c_wkmsbsn</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgisnpgug</Name><Title>국립자연공원</Title><Abstract>국립자연공원</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgisnpgug</Name>
+				<Title>lt_c_wgisnpgug</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgisiegug</Name><Title>국가산업단지</Title><Abstract>국가산업단지</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgisiegug</Name>
+				<Title>lt_c_wgisiegug</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgispl2spa</Name><Title>(2차) 특수연안해역</Title><Abstract>(2차) 특수연안해역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgispl2spa</Name>
+				<Title>lt_c_wgispl2spa</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_busiincubator</Name><Title>창업보육센터</Title><Abstract>창업보육센터</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_busiincubator</Name>
+				<Title>lt_p_busiincubator</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq112</Name><Title>관리지역</Title><Abstract>관리지역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq112</Name>
+				<Title>lt_c_uq112</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_dhsch</Name><Title>고등학교학교군</Title><Abstract>고등학교학교군</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_dhsch</Name>
+				<Title>lt_c_dhsch</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_a1node</Name><Title>주행경로노드</Title><Abstract>주행경로노드</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_a1node</Name>
+				<Title>lt_p_a1node</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_toisdepcntah</Name><Title>해안선</Title><Abstract>해안선</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_toisdepcntah</Name>
+				<Title>lt_l_toisdepcntah</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_gimsdirec</Name><Title>지하수유동방향</Title><Abstract>지하수유동방향</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_gimsdirec</Name>
+				<Title>lt_l_gimsdirec</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_usfsffb</Name><Title>소방서관할구역</Title><Abstract>소방서관할구역</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_usfsffb</Name>
+				<Title>lt_c_usfsffb</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq129</Name><Title>개발진흥지구</Title><Abstract>개발진흥지구</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq129</Name>
+				<Title>lt_c_uq129</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_uq128</Name><Title>취락지구</Title><Abstract>취락지구</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_uq128</Name>
+				<Title>lt_c_uq128</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_lhblpn</Name><Title>토지이용계획도</Title><Abstract>토지이용계획도</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_lhblpn</Name>
+				<Title>lt_c_lhblpn</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_wgisreplan</Name><Title>공유수면매립기본계획</Title><Abstract>공유수면매립기본계획</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_wgisreplan</Name>
+				<Title>lt_c_wgisreplan</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_c6postpoint</Name><Title>지주</Title><Abstract>지주</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_c6postpoint</Name>
+				<Title>lt_p_c6postpoint</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_weissitemb</Name><Title>수질측정망호소수지점</Title><Abstract>수질측정망호소수지점</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_weissitemb</Name>
+				<Title>lt_p_weissitemb</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_aiscorrid_ys</Name><Title>한강회랑</Title><Abstract>한강회랑</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_aiscorrid_ys</Name>
+				<Title>lt_l_aiscorrid_ys</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_aiscorrid_gj</Name><Title>한강회랑</Title><Abstract>한강회랑</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_aiscorrid_gj</Name>
+				<Title>lt_l_aiscorrid_gj</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_aiscorrid_ys</Name><Title>한강회랑</Title><Abstract>한강회랑</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_aiscorrid_ys</Name>
+				<Title>lt_p_aiscorrid_ys</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_p_aiscorrid_gj</Name><Title>한강회랑</Title><Abstract>한강회랑</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_p_aiscorrid_gj</Name>
+				<Title>lt_p_aiscorrid_gj</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_c_cademd</Name><Title>(센서스경계)행정동경계</Title><Abstract>(센서스경계)행정동경계</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_c_cademd</Name>
+				<Title>lt_c_cademd</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>lt_l_n3a0020000</Name><Title>도로중심선</Title><Abstract>도로중심선</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>lt_l_n3a0020000</Name>
+				<Title>lt_l_n3a0020000</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>dt_d160</Name><Title>토지소유공간정보</Title><Abstract>토지소유공간정보</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>dt_d160</Name>
+				<Title>dt_d160</Title>
+			</Style>
+		</Layer>
+		<Layer cascaded="0" fixedHeight="0" fixedWidth="0" noSubsets="0" opaque="0" queryable="1"><Name>dt_d002</Name><Title>연속지적도형정보</Title><Abstract>연속지적도형정보</Abstract>
+			<EX_GeographicBoundingBox><eastBoundLongitude>132.64</eastBoundLongitude><westBoundLongitude>123.52</westBoundLongitude><southBoundLatitude>32.24</southBoundLatitude><northBoundLatitude>43.80</northBoundLatitude></EX_GeographicBoundingBox>
+			<LatLonBoundingBox minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" />			<BoundingBox CRS="EPSG:4326" minx="124.61268" miny="33.11371" maxx="131.95476" maxy="38.61371" resx="0.00000" resy="0.00000"/>
+			<Style>
+				<Name>dt_d002</Name>
+				<Title>dt_d002</Title>
+			</Style>
+		</Layer>
+	</Layer>
+	</Capability>
+</WMS_Capabilities>

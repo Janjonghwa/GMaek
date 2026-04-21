@@ -1,0 +1,105 @@
+import React, { useState } from 'react';
+import { FengShuiResult } from '@/lib/fengshui/types';
+import { RadarChart } from './RadarChart';
+import { Sparkles, Download, Loader2, X } from 'lucide-react';
+
+interface ResultCardProps {
+  data: FengShuiResult;
+  onReset: () => void;
+  onDownload: () => void;
+  isDownloading: boolean;
+}
+
+export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownload, isDownloading }) => {
+  const [selectedInfo, setSelectedInfo] = useState<{ label: string, reason: string } | null>(null);
+
+  const showDetail = (index: number) => {
+    const labels = ['배산', '임수', '안정', '현대', '균형'];
+    setSelectedInfo({
+      label: labels[index],
+      reason: data.reasons[index]
+    });
+  };
+
+  return (
+    <div className="absolute inset-0 bg-[#0c0c1e] z-[70] flex flex-col items-center overflow-y-auto pt-10 pb-20 px-6 animate-in fade-in zoom-in-95 duration-1000">
+      
+      {/* 결과 영역 (화면 표시용) */}
+      <div className="w-full max-w-[400px] bg-[#0c0c1e] p-8 rounded-[40px] flex flex-col items-center relative overflow-hidden">
+        {/* 배경 기운 */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
+          <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,#1a1a2e_0%,transparent_50%)] animate-spin-slow" />
+        </div>
+
+        <div className="mb-8 text-8xl drop-shadow-[0_0_30px_rgba(251,197,49,0.4)]">
+          {data.score >= 90 ? '🌻' : data.score >= 80 ? '🌿' : '🌱'}
+        </div>
+        <h1 className="text-4xl font-[1000] text-fengshui-gold mb-2 tracking-[calc(-0.05em)] text-center">
+          {data.historicalMatch || '명당'}
+        </h1>
+        
+        <div className="flex flex-col items-center mb-10 relative">
+          <span className="text-white font-[1000] text-8xl tracking-tighter drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">{data.score}</span>
+          <div className="h-1.5 w-16 bg-fengshui-gold rounded-full my-3 shadow-[0_0_15px_rgba(251,197,49,0.8)]" />
+          <span className="text-white/30 text-[11px] font-black uppercase tracking-[0.4em]">Integrated Energy</span>
+        </div>
+
+        <RadarChart scores={data.scores} onPointClick={showDetail} />
+
+        <div className="w-full grid grid-cols-5 gap-2 mb-10">
+          {['배산', '임수', '안정', '현대', '균형'].map((label, i) => (
+            <button key={i} onClick={() => showDetail(i)} className="flex flex-col items-center bg-white/5 py-5 rounded-[24px] border border-white/10 hover:bg-white/10 transition-all active:scale-90">
+              <span className="text-white/20 text-[10px] font-[900] mb-1">{label}</span>
+              <span className="text-fengshui-gold font-[1000] text-lg">{data.scores[i]}</span>
+            </button>
+          ))}
+        </div>
+
+        <div className="w-full bg-white/5 backdrop-blur-md border border-dashed border-fengshui-gold/30 rounded-[36px] p-8 relative">
+          <div className="absolute -top-3.5 left-10 bg-[#0c0c1e] px-4 py-0.5 rounded-full border border-fengshui-gold/30">
+            <span className="text-[11px] font-[1000] text-fengshui-gold uppercase tracking-[0.2em]">Geomancy Report</span>
+          </div>
+          <p className="text-white/90 text-lg leading-relaxed break-keep font-bold italic tracking-tight">
+            "{data.analysis.total}"
+          </p>
+        </div>
+      </div>
+
+      {/* 하단 컨트롤 */}
+      <div className="w-full max-w-[400px] mt-10 space-y-4 px-2 relative z-10">
+        <button 
+          onClick={onDownload}
+          disabled={isDownloading}
+          className="w-full py-6 bg-fengshui-gold text-black rounded-[32px] font-[1000] text-2xl shadow-[0_20px_50px_rgba(251,197,49,0.3)] flex items-center justify-center gap-4 active:scale-95 transition-all disabled:opacity-50"
+        >
+          {isDownloading ? <Loader2 className="w-7 h-7 animate-spin" /> : <Download className="w-7 h-7" />}
+          명당 카드 저장하기
+        </button>
+        
+        <button onClick={onReset} className="w-full py-4 text-white/30 text-sm font-black uppercase tracking-[0.2em] hover:text-white/60 transition-colors">Analyze New Land</button>
+      </div>
+
+      {/* 모달 */}
+      {selectedInfo && (
+        <div className="absolute inset-0 z-[100] flex items-center justify-center p-10 animate-in fade-in duration-300">
+          <div className="absolute inset-0 bg-black/90 backdrop-blur-md" onClick={() => setSelectedInfo(null)} />
+          <div className="bg-[#1a1a2e] w-full max-w-md rounded-[48px] p-10 border border-white/10 shadow-[0_0_100px_rgba(0,0,0,1)] relative animate-in zoom-in-95 slide-in-from-bottom-20 duration-500">
+            <button onClick={() => setSelectedInfo(null)} className="absolute top-8 right-8 p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
+              <X className="w-6 h-6 text-white/40" />
+            </button>
+            <div className="flex items-center gap-5 mb-10">
+              <div className="w-16 h-16 rounded-[24px] bg-fengshui-gold/10 flex items-center justify-center shadow-inner">
+                <Sparkles className="w-9 h-9 text-fengshui-gold fill-fengshui-gold" />
+              </div>
+              <h3 className="text-3xl font-[1000] text-fengshui-gold tracking-tight">{selectedInfo.label} 분석</h3>
+            </div>
+            <p className="text-white/90 text-2xl leading-snug font-bold break-keep mb-8 tracking-tighter">
+              {selectedInfo.reason}
+            </p>
+            <p className="text-white/20 text-sm font-bold uppercase tracking-widest border-t border-white/5 pt-8">Verified GIS Geomancy Algorithm</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
