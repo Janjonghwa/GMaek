@@ -65,10 +65,12 @@ export default function Home() {
         { signal: abortControllerRef.current.signal }
       );
 
-      const resultData = response.data;
-      if (clickedCoord.address) {
-        resultData.address = clickedCoord.address;
-      }
+      const resultData = { 
+        ...response.data, 
+        address: clickedCoord.address,
+        lat: clickedCoord.lat,
+        lng: clickedCoord.lng
+      };
       setAnalysisData(resultData);
 
       addHistory({

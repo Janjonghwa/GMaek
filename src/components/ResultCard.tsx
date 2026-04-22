@@ -86,9 +86,24 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
           </div>
         </div>
 
-        <div className="mb-8 text-8xl drop-shadow-[0_0_30px_rgba(251,197,49,0.4)]">
+        <div className="mb-6 text-8xl drop-shadow-[0_0_30px_rgba(251,197,49,0.4)]">
           {data.score >= 90 ? '🌻' : data.score >= 80 ? '🌿' : '🌱'}
         </div>
+
+        {data.lat && data.lng && (
+          <div className="mb-6 relative group">
+            <div className="absolute -inset-1.5 bg-fengshui-gold/20 rounded-full blur-md opacity-50 group-hover:opacity-100 transition-opacity" />
+            <div className="w-20 h-20 rounded-full border-2 border-fengshui-gold/50 overflow-hidden relative shadow-2xl bg-[#1a1a2e]">
+              <img 
+                src={`https://map2.daum.net/map/staticmap?AppKey=${process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&width=160&height=160&center=${data.lng},${data.lat}&level=3&marker=${data.lng},${data.lat},1`}
+                alt="분석 위치 미니맵"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                onError={(e) => (e.currentTarget.style.display = 'none')}
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full pointer-events-none" />
+            </div>
+          </div>
+        )}
 
         {data.address && (
           <div className="mb-4 text-white/70 text-sm font-bold bg-white/5 px-4 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5">
