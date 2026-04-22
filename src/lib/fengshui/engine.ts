@@ -42,7 +42,7 @@ export const analyzeFengShui = async (lat: number, lng: number): Promise<FengShu
     try {
       const elevationRes = await axios.post('https://api.open-elevation.com/api/v1/lookup', {
         locations: samplePoints.map(p => ({ latitude: p.lat, longitude: p.lng }))
-      }, { timeout: 8000 });
+      }, { timeout: 15000 });
       
       const results = elevationRes.data.results as ElevationResult[];
       elevs = results.map(r => r.elevation);
