@@ -1,4 +1,4 @@
-<img width="1272" height="1056" alt="스크린샷 2026-04-22 163541" src="https://github.com/user-attachments/assets/54014ced-a434-4996-9bf6-8e79b0c396e8" />
+
 <div align="center">
   <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" alt="Next.js" />
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
