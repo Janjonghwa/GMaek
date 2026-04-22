@@ -107,15 +107,19 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
           </div>
         )}
 
-        <h1 className="text-[32px] font-[1000] text-fengshui-gold mb-2 tracking-[calc(-0.05em)] text-center leading-tight">
+        <div className="mt-2 mb-1">
+          <span className="text-fengshui-gold/40 text-[10px] font-[1000] tracking-[0.3em] uppercase">풍수지리 터의 유형</span>
+        </div>
+        
+        <h1 className="text-[30px] font-[1000] text-fengshui-gold mb-2 tracking-[calc(-0.03em)] text-center leading-tight px-4">
           {(data.historicalMatch || '명당').split('(').map((part, index) => (
             <React.Fragment key={index}>
               {index > 0 ? (
-                <span className="text-xl text-fengshui-gold/70 mt-2 block font-black">
-                  ({part}
+                <span className="text-lg text-fengshui-gold/60 mt-1 block font-black">
+                  ({part.replace(')', '')})
                 </span>
               ) : (
-                part.trim()
+                <span className="block">{part.trim()}과 같은 유형</span>
               )}
             </React.Fragment>
           ))}
