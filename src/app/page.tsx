@@ -206,17 +206,23 @@ export default function Home() {
             <span className="text-white/90 text-sm font-bold">{clickedCoord?.address || '선택된 위치'}</span>
           </div>
 
-          <div className="flex items-center gap-4 mb-3">
-            <div className="relative w-12 h-12 rounded-2xl bg-fengshui-gold/10 flex items-center justify-center overflow-hidden border border-fengshui-gold/20">
-              <div className="absolute inset-0 bg-gradient-to-br from-fengshui-gold/20 to-transparent" />
-              <Sparkles className="w-7 h-7 text-fengshui-gold fill-fengshui-gold relative z-10 drop-shadow-[0_0_10px_rgba(251,197,49,0.8)]" />
+          <div className="flex flex-col items-center text-center">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="relative w-12 h-12 rounded-2xl bg-fengshui-gold/10 flex items-center justify-center overflow-hidden border border-fengshui-gold/20">
+                <div className="absolute inset-0 bg-gradient-to-br from-fengshui-gold/20 to-transparent" />
+                <Sparkles className="w-7 h-7 text-fengshui-gold fill-fengshui-gold relative z-10 drop-shadow-[0_0_10px_rgba(251,197,49,0.8)]" />
+              </div>
+              <div className="text-left">
+                <h2 className="text-2xl font-[1000] text-white leading-tight">이곳의 기운은 어떨까요?</h2>
+                <p className="text-fengshui-gold/70 text-xs font-bold tracking-[0.2em] mt-1">땅의 에너지를 분석합니다</p>
+              </div>
             </div>
-            <h2 className="text-2xl font-[1000] text-white mb-2">이곳의 기운은 어떨까요?</h2>
-            <p className="text-fengshui-gold text-xs font-bold tracking-[0.2em] mb-8">땅의 에너지를 분석합니다</p>
-            <p className="bg-clip-text text-transparent bg-gradient-to-r from-fengshui-gold/80 to-amber-500/60 text-[13px] mb-8 font-bold tracking-wide">
+            
+            <p className="bg-clip-text text-transparent bg-gradient-to-r from-fengshui-gold/80 to-amber-500/60 text-[14px] mb-8 font-bold tracking-wide">
               * '네' 선택 시 지맥 분석이 시작됩니다.
             </p>
-            <div className="grid grid-cols-2 gap-4">
+
+            <div className="grid grid-cols-2 gap-4 w-full">
               <button
                 onClick={startAnalysis}
                 className="group relative overflow-hidden py-5 rounded-[24px] bg-gradient-to-br from-white/10 to-white/5 border border-fengshui-gold/40 font-[1000] text-xl text-fengshui-gold transition-all active:scale-95 hover:shadow-[0_0_30px_rgba(251,197,49,0.2)] hover:border-fengshui-gold/70"
