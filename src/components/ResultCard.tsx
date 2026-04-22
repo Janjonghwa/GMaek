@@ -95,8 +95,8 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
             <div className="absolute -inset-1.5 bg-fengshui-gold/20 rounded-full blur-md opacity-50 group-hover:opacity-100 transition-opacity" />
             <div className="w-24 h-24 rounded-full border-2 border-fengshui-gold/50 overflow-hidden relative shadow-[0_0_30px_rgba(251,197,49,0.3)] bg-[#0c0c1e] flex items-center justify-center">
               <img 
-                src={`/api/map-proxy?lat=${data.lat}&lng=${data.lng}&t=${new Date().getTime()}`}
-                alt="분석 위치 위성지도"
+                src={`https://map.kakao.com/link/staticmap?center=${data.lat},${data.lng}&level=3&width=200&height=200&marker=${data.lat},${data.lng}`}
+                alt="분석 위치 카카오지도"
                 className="w-full h-full object-cover transition-opacity duration-700"
                 onLoad={(e) => (e.currentTarget.style.opacity = '1')}
                 onError={(e) => {
