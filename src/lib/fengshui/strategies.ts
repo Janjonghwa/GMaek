@@ -120,8 +120,8 @@ export const calculateScores = (elev: ElevationData, poi: POIData): FengShuiResu
   const totalReport = `${summary} ${highlight} ${advice}`;
 
   // 역사적 매칭 (다양한 기준 반영)
-  let historicalMatch = "소박한 일상의 터전";
-  if (totalScore >= 95) historicalMatch = "용이 승천할 비룡승운(飛龍乘雲)의 터";
+  let historicalMatch = "소박한 일상의 터전 (평온한 일상)";
+  if (totalScore >= 95) historicalMatch = "비룡승운의 터 (천하제일 명당)";
   else if (mountainScore > 90 && waterScore > 90) historicalMatch = "조선 왕릉급 명당 (천하명당)";
   else if (mountainScore > 85 && stabilityScore > 85) historicalMatch = "학이 깃드는 청학동 (정신적 힐링)";
   else if (mountainScore > 85) historicalMatch = "선비의 안식처 (정신적 안정)";
@@ -129,7 +129,7 @@ export const calculateScores = (elev: ElevationData, poi: POIData): FengShuiResu
   else if (waterScore > 85) historicalMatch = "만상객주 터 (활발한 교류)";
   else if (modernScore > 90) historicalMatch = "한양 도성의 중심 (현대적 편리함)";
   else if (balanceScore > 90) historicalMatch = "음양오행의 조화 (무병장수)";
-  else if (totalScore >= 75) historicalMatch = "안정적인 둥지 (소확행)";
+  else if (totalScore >= 75) historicalMatch = "안정적인 둥지 (소소한 행복)";
 
   return {
     score: totalScore,

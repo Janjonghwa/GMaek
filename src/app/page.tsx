@@ -147,7 +147,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/80 font-[1000] text-lg leading-tight">이곳의 기운은 어떨까요?</h3>
-                  <p className="text-fengshui-gold/60 text-xs font-[800] uppercase tracking-widest mt-0.5">Explore the Energy</p>
+                  <p className="text-fengshui-gold/60 text-xs font-[800] tracking-widest mt-0.5">기운 분석하기</p>
                 </div>
               </div>
               <p className="text-white/60 text-[13px] font-semibold leading-relaxed">
@@ -225,7 +225,7 @@ export default function Home() {
               className="group relative overflow-hidden py-5 rounded-[24px] bg-gradient-to-br from-white/10 to-white/5 border border-fengshui-gold/40 font-[1000] text-xl text-fengshui-gold transition-all active:scale-95 hover:shadow-[0_0_30px_rgba(251,197,49,0.2)] hover:border-fengshui-gold/70"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-fengshui-gold/0 via-fengshui-gold/10 to-fengshui-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-              <span className="relative z-10 drop-shadow-md">네, 보여요</span>
+              <span className="relative z-10 drop-shadow-md">좋아 보여요</span>
             </button>
             <button 
               onClick={() => setStep('map')} 

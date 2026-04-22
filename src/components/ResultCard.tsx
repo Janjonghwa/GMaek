@@ -111,7 +111,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
         <div className="flex flex-col items-center mb-10 relative">
           <span className="text-white font-[1000] text-8xl tracking-tighter drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">{data.score}</span>
           <div className="h-1.5 w-16 bg-fengshui-gold rounded-full my-3 shadow-[0_0_15px_rgba(251,197,49,0.8)]" />
-          <span className="text-white/30 text-[11px] font-black uppercase tracking-[0.4em]">Integrated Energy</span>
+          <span className="text-white/30 text-[11px] font-black tracking-[0.4em]">종합 풍수 지수</span>
         </div>
 
         <RadarChart scores={data.scores} onPointClick={showDetail} />
@@ -132,7 +132,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
 
         <div className="w-full bg-white/5 backdrop-blur-md border border-dashed border-fengshui-gold/30 rounded-[36px] p-8 relative">
           <div className="absolute -top-3.5 left-10 bg-[#0c0c1e] px-4 py-0.5 rounded-full border border-fengshui-gold/30">
-            <span className="text-[11px] font-[1000] text-fengshui-gold tracking-[0.1em]">풍수 총평 (Geomancy Report)</span>
+            <span className="text-[11px] font-[1000] text-fengshui-gold tracking-[0.1em]">풍수 총평</span>
           </div>
           <p className="text-white/90 text-lg leading-relaxed break-keep font-bold italic tracking-tight">
             "{data.analysis.total}"
@@ -150,7 +150,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
           명당 카드 저장하기
         </button>
         
-        <button onClick={onReset} className="w-full py-4 text-white/30 text-sm font-black uppercase tracking-[0.2em] hover:text-white/60 transition-colors">Analyze New Land</button>
+        <button onClick={onReset} className="w-full py-4 text-white/30 text-sm font-black tracking-[0.2em] hover:text-white/60 transition-colors">새로운 터 감정하기</button>
       </div>
 
       {selectedInfo && (
@@ -176,7 +176,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
               {selectedInfo.reason}
             </p>
             <div className="flex items-center justify-between border-t border-white/10 pt-6">
-              <p className="text-white/30 text-xs font-bold uppercase tracking-widest">Verified GIS Algorithm</p>
+              <p className="text-white/30 text-xs font-bold tracking-widest">국가 공간 정보 기반 검증 완료</p>
               <button onClick={() => setSelectedInfo(null)} aria-label="상세 모달 확인 후 닫기" className="text-fengshui-gold font-bold flex items-center gap-1 group text-sm">
                 확인 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
