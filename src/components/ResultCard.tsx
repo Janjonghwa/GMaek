@@ -87,6 +87,14 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
           </div>
         </div>
 
+        {/* isPartial 알림 - 미니맵 위에 */}
+        {data.isPartial && (
+          <div className="w-full flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-2xl px-4 py-2.5 mb-4">
+            <span className="text-amber-400 text-sm">⚠️</span>
+            <span className="text-[11px] font-bold text-amber-200/80 leading-snug">일부 데이터(지형/상권) 응답 지연으로 가상 기운이 혼합되었습니다.</span>
+          </div>
+        )}
+
         {/* 1. 지도 (최상단) */}
         {data.lat && data.lng && (
           <div className="w-full mb-4 relative group">

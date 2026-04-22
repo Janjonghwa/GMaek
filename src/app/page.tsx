@@ -298,12 +298,6 @@ export default function Home() {
               onDownload={handleDownload}
               isDownloading={isSaving}
             />
-            {analysisData.isPartial && (
-              <div className="absolute top-24 left-1/2 -translate-x-1/2 z-[80] bg-amber-500/20 backdrop-blur-md px-4 py-2 rounded-full border border-amber-500/30 flex items-center gap-2 animate-pulse">
-                <AlertCircle className="w-4 h-4 text-amber-400" />
-                <span className="text-[11px] font-bold text-amber-200">일부 데이터(지형/상권) 응답 지연으로 가상 기운이 혼합되었습니다.</span>
-              </div>
-            )}
           </div>
         )}
 
