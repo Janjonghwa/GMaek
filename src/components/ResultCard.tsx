@@ -93,14 +93,22 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
         {data.lat && data.lng && (
           <div className="mb-6 relative group">
             <div className="absolute -inset-1.5 bg-fengshui-gold/20 rounded-full blur-md opacity-50 group-hover:opacity-100 transition-opacity" />
-            <div className="w-20 h-20 rounded-full border-2 border-fengshui-gold/50 overflow-hidden relative shadow-2xl bg-[#1a1a2e]">
+            <div className="w-24 h-24 rounded-full border-2 border-fengshui-gold/50 overflow-hidden relative shadow-[0_0_30px_rgba(251,197,49,0.3)] bg-[#0c0c1e] flex items-center justify-center">
               <img 
-                src={`/api/map-proxy?lat=${data.lat}&lng=${data.lng}`}
-                alt="분석 위치 미니맵"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                src={`/api/map-proxy?lat=${data.lat}&lng=${data.lng}&t=${new Date().getTime()}`}
+                alt="분석 위치 위성지도"
+                className="w-full h-full object-cover transition-opacity duration-700"
                 onLoad={(e) => (e.currentTarget.style.opacity = '1')}
-                style={{ opacity: 0, transition: 'opacity 0.5s' }}
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  const fallback = e.currentTarget.parentElement?.querySelector('.map-fallback');
+                  if (fallback) fallback.classList.remove('hidden');
+                }}
+                style={{ opacity: 0 }}
               />
+              <div className="map-fallback hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-fengshui-gold/20 to-transparent">
+                <Sparkles className="w-8 h-8 text-fengshui-gold/50" />
+              </div>
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full pointer-events-none" />
             </div>
           </div>
