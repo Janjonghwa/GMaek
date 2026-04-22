@@ -125,7 +125,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
             const last = name[name.length - 1];
             const code = last?.charCodeAt(0) ?? 0;
             const hasBatchim = code >= 0xAC00 && ((code - 0xAC00) % 28) !== 0;
-            return `${hasBatchim ? '와' : '과'} 같은 유형의 터`;
+            return `${hasBatchim ? '과' : '와'} 같은 유형의 터`;
           })()}
         </p>
 
