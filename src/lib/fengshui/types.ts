@@ -21,6 +21,7 @@ export interface FengShuiResult {
   historicalMatch?: string;
   signature?: string; // 1A: 보안 서명
   isPartial?: boolean; // 2A: 데이터 누락 여부
+  cached?: boolean;
 }
 
 export interface HistoryItem {

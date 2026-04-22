@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { calculateScores, ElevationData, POIData } from './strategies';
 import { FengShuiResult } from './types';
-import crypto from 'crypto';
+import { generateSignature } from './signature';
 
 const isWithinKorea = (lat: number, lng: number) => {
   return lat >= 33 && lat <= 39 && lng >= 124 && lng <= 132;
@@ -12,15 +12,6 @@ interface ElevationResult {
   longitude: number;
   elevation: number;
 }
-
-// 1A: HMAC 서명 생성 함수
-const generateSignature = (score: number, match: string) => {
-  const secret = process.env.KAKAO_REST_KEY || 'gmaek-fallback-secret';
-  return crypto.createHmac('sha256', secret)
-    .update(`${score}:${match}`)
-    .digest('hex')
-    .substring(0, 12); // 짧은 서명
-};
 
 export const analyzeFengShui = async (lat: number, lng: number): Promise<FengShuiResult> => {
   if (!isWithinKorea(lat, lng)) {
@@ -79,8 +70,7 @@ export const analyzeFengShui = async (lat: number, lng: number): Promise<FengShu
       }
     };
     
-    const riverCount = await kakaoSearch('물');
-    const stationCount = await (async () => {
+    const stationLookup = async () => {
       try {
         const res = await axios.get('https://dapi.kakao.com/v2/local/search/keyword.json', {
           params: { query: '역', x: lng, y: lat, radius: 2000, size: 5 },
@@ -88,17 +78,22 @@ export const analyzeFengShui = async (lat: number, lng: number): Promise<FengShu
           timeout: 2000
         });
         return res.data.meta.total_count;
-      } catch (e) { 
+      } catch (e) {
         isPartial = true; 
         return 0; 
       }
-    })();
+    };
+
+    const [riverCount, stationCount] = await Promise.all([
+      kakaoSearch('물'),
+      stationLookup(),
+    ]);
 
     const result = calculateScores(elevData, { riverCount, stationCount });
     
     // 최종 결과에 서명 및 신뢰도 추가
     result.isPartial = isPartial;
-    result.signature = generateSignature(result.score, result.historicalMatch || '명당');
+    result.signature = await generateSignature(result.score, result.historicalMatch || '명당');
 
     const duration = Date.now() - startTime;
     console.log(JSON.stringify({ type: 'FENGSHUI_ANALYSIS_SUCCESS', lat, lng, durationMs: duration, score: result.score }));

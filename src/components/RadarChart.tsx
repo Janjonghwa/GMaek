@@ -7,6 +7,13 @@ interface RadarChartProps {
 
 export const RadarChart: React.FC<RadarChartProps> = ({ scores, onPointClick }) => {
   const labels = ['배산', '임수', '안정', '현대', '균형'];
+
+  const handleKeyDown = (event: React.KeyboardEvent<SVGGElement>, index: number) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onPointClick(index);
+    }
+  };
   
   const points = scores.map((score, i) => {
     const angle = (Math.PI * 2 * i) / 5 - Math.PI / 2;
@@ -53,7 +60,15 @@ export const RadarChart: React.FC<RadarChartProps> = ({ scores, onPointClick }) 
           const y = 50 + r * Math.sin(angle);
           
           return (
-            <g key={i} className="cursor-pointer hover:opacity-80 transition-opacity" onClick={() => onPointClick(i)}>
+            <g
+              key={i}
+              className="cursor-pointer hover:opacity-80 transition-opacity focus:outline-none"
+              onClick={() => onPointClick(i)}
+              onKeyDown={(event) => handleKeyDown(event, i)}
+              tabIndex={0}
+              role="button"
+              aria-label={`${labels[i]} 점수 상세 보기`}
+            >
               <circle cx={50 + (score / 100 * 35) * Math.cos(angle)} cy={50 + (score / 100 * 35) * Math.sin(angle)} r="1.2" className="fill-fengshui-gold" />
               <text x={x} y={y - 3} className="fill-fengshui-gold text-[5px] font-[900]" textAnchor="middle">{labels[i]}</text>
               <text x={x} y={y + 3} className="fill-white/50 text-[3.5px] font-bold" textAnchor="middle">{score}점</text>

@@ -20,3 +20,33 @@ Branch: master
 ## Critical Paths
 - **End-to-End:** 지도 클릭부터 인스타그램 공유용 이미지 생성까지의 전체 흐름.
 - **Algorithm:** 8방위 고도 분석을 통한 '배산임수' 점수 산출의 수학적 정확도.
+
+## Execution Matrix (Expanded)
+
+| ID | Scope | Type | Owner | Preconditions | Steps | Expected Result |
+|---|---|---|---|---|---|---|
+| TC-001 | 지도 클릭→결과 전환 | E2E | FE | 앱 실행, 지도 로드 완료 | 1) 지도 클릭 2) 설문 선택 3) 분석 시작 | 중복 클릭 차단, 로딩 후 결과 카드 표시 |
+| TC-002 | Local History 저장 | Integration | FE | TC-001 완료 | 결과 확인 후 메인 복귀 | 최근 목록에 신규 항목 추가(FIFO 10개 유지) |
+| TC-003 | 이미지 저장 | Integration | FE/BE | 결과 카드 노출 상태 | 저장 버튼 클릭 | 고화질 PNG 다운로드 성공(실패 시 toast) |
+| TC-004 | 영토 밖 좌표 차단 | API/UI | BE/FE | analyze API 호출 가능 | 범위 밖 좌표로 `/api/analyze` 호출 | 에러 코드/메시지 일관 노출 + 재시도 안내 |
+| TC-005 | analyze 타임아웃 | API/UI | BE/FE | 네트워크 지연 유도 | API 응답 5초 이상 지연 조건 생성 | 지연 안내 + 재시도 UX 노출 |
+| TC-006 | localStorage 오염 복구 | Integration | FE | 잘못된 JSON 주입 | 앱 재시작 | 안전 초기화 + 사용자 안내 문구 |
+| TC-007 | share 시그니처 검증 | API | BE | share API 호출 가능 | 유효/무효 sig 각각 호출 | 유효는 이미지, 무효는 표준 에러 코드 반환 |
+
+## API Contract Checks
+
+1. `/api/analyze`와 `/api/share`는 공통 에러 코드 체계를 사용한다.
+2. 실패 응답은 프런트에서 분기 가능한 code/message 구조를 유지한다.
+3. 타임아웃/레이트리밋/검증실패 케이스를 개별 테스트로 분리한다.
+
+## Local Run Commands
+
+- Unit/Integration: `npm run test`
+- Type check: `npm run typecheck` (스크립트 없으면 `npx tsc --noEmit`)
+- Build smoke: `npm run build`
+
+## Exit Criteria
+
+1. TC-001~TC-007 모두 통과
+2. Critical path E2E 1개 이상 통과
+3. 타입체크/빌드 성공

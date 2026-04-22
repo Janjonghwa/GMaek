@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import axios from 'axios';
 import { MapPin, Sparkles, Loader2, RefreshCw, AlertCircle, History, X } from 'lucide-react';
 import { MapView } from '@/components/MapView';
@@ -16,7 +16,31 @@ export default function Home() {
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [isSaving, setIsSaving] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
+
+  useEffect(() => {
+    if (!toastMessage) return;
+
+    const timer = window.setTimeout(() => {
+      setToastMessage(null);
+    }, 3200);
+
+    return () => window.clearTimeout(timer);
+  }, [toastMessage]);
+
+  useEffect(() => {
+    if (!showHistory) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setShowHistory(false);
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [showHistory]);
 
   const handleMapClick = useCallback((lat: number, lng: number) => {
     setStep(prev => {
@@ -55,9 +79,13 @@ export default function Home() {
       
     } catch (error: any) {
       if (axios.isCancel(error)) return;
-      
+
       // 디자인 리뷰 결정 3A: 감성 에러 메시지
-      setErrorMessage(error.response?.data?.error || "지맥이 잠시 꼬여 분석을 완료하지 못했습니다.");
+      const apiError = error.response?.data?.error;
+      const message = typeof apiError === 'string'
+        ? apiError
+        : apiError?.message;
+      setErrorMessage(message || '지맥이 잠시 꼬여 분석을 완료하지 못했습니다.');
       setStep('error');
     }
   };
@@ -68,8 +96,15 @@ export default function Home() {
     try {
       const url = `/api/share?score=${analysisData.score}&match=${encodeURIComponent(analysisData.historicalMatch || '명당')}&lat=${clickedCoord?.lat.toFixed(4)}&lng=${clickedCoord?.lng.toFixed(4)}&sig=${analysisData.signature || ''}`;
       const response = await fetch(url);
-      
+
       if (!response.ok) {
+        const contentType = response.headers.get('content-type') || '';
+        if (contentType.includes('application/json')) {
+          const payload = await response.json();
+          const apiMessage = payload?.error?.message || '이미지 생성 중 오류가 발생했습니다.';
+          throw new Error(`Server responded with ${response.status}: ${apiMessage}`);
+        }
+
         const errorText = await response.text();
         throw new Error(`Server responded with ${response.status}: ${errorText}`);
       }
@@ -81,7 +116,7 @@ export default function Home() {
       link.click();
     } catch (e: any) {
       console.error('Download failed:', e);
-      alert(`이미지 생성 중 오류가 발생했습니다: ${e.message}`);
+      setToastMessage(`이미지 생성 중 오류가 발생했습니다: ${e.message}`);
     } finally {
       setIsSaving(false);
     }
@@ -121,6 +156,7 @@ export default function Home() {
           {/* History Toggle Button for Mobile */}
           <button 
             onClick={() => setShowHistory(true)}
+            aria-label="명당 기록 열기"
             className="absolute top-10 right-6 z-20 md:hidden bg-white/10 backdrop-blur-xl p-4 rounded-full border border-white/10 active:scale-95 transition-all"
           >
             <History className="w-6 h-6 text-fengshui-gold" />
@@ -136,13 +172,13 @@ export default function Home() {
 
       {/* Mobile History Overlay */}
       {showHistory && (
-        <div className="absolute inset-0 z-50 bg-black/80 backdrop-blur-xl animate-in fade-in duration-300">
+        <div className="absolute inset-0 z-50 bg-black/80 backdrop-blur-xl animate-in fade-in duration-300" role="dialog" aria-modal="true" aria-label="명당 기록 패널">
           <div className="absolute inset-x-0 bottom-0 h-[80vh] bg-[#1a1a2e] rounded-t-[48px] p-8 overflow-y-auto">
             <div className="flex justify-between items-center mb-8">
               <h2 className="text-2xl font-[1000] text-fengshui-gold flex items-center gap-3">
                 <History className="w-6 h-6" /> 명당 기록
               </h2>
-              <button onClick={() => setShowHistory(false)} className="p-3 rounded-full bg-white/5">
+              <button onClick={() => setShowHistory(false)} aria-label="명당 기록 닫기" className="p-3 rounded-full bg-white/5">
                 <X className="w-6 h-6" />
               </button>
             </div>
@@ -233,6 +269,12 @@ export default function Home() {
               <span className="text-[11px] font-bold text-red-200">일부 데이터(POI) 분석이 누락되었습니다.</span>
             </div>
           )}
+        </div>
+      )}
+
+      {toastMessage && (
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[120] bg-black/80 border border-fengshui-gold/40 rounded-2xl px-5 py-3 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.35)]" role="status" aria-live="polite">
+          <p className="text-sm font-semibold text-fengshui-gold">{toastMessage}</p>
         </div>
       )}
 

@@ -38,3 +38,262 @@ Repo: mrj-ver2
 ## Deferred to Phase 2 (TODOS.md)
 - Supabase DB 연동 및 전역 명당 히트맵 기능.
 - 카카오톡 공유 API를 통한 배틀 초대장 발송.
+
+## Design Plan Review (2026-04-21)
+
+### System Audit
+- Base branch: `master`
+- Review target: `ceo-plan.md`
+- UI scope: 있음 (메인 맵 화면, 설문 바텀시트, 로딩/에러/결과 오버레이, 히스토리 사이드/모바일 오버레이)
+- `DESIGN.md`: 없음 (임시 디자인 규격을 본 문서에 잠금)
+- `TODOS.md`: 없음 (아래 "TODOS 제안"을 기준으로 생성 권장)
+- 디자인 바이너리: 미사용 가능 상태 (`DESIGN_NOT_AVAILABLE`)로 텍스트 리뷰 진행
+
+### Step 0 - Initial Rating
+- 초기 디자인 완성도: **7/10**
+- 10/10 기준: 화면 우선순위 고정 + 상태표(Loading/Empty/Error/Success/Partial) + 반응형/접근성 수치 기준 + 재사용 컴포넌트/토큰 계약까지 문서화된 상태
+
+---
+
+## Pass 1. Information Architecture
+
+- 점수: **6/10 → 9/10**
+
+### 결정사항
+1. 첫 화면의 1순위는 **"지도 클릭 유도"**로 고정한다.
+2. 히스토리 접근은 2순위 보조 액션으로 유지한다.
+3. 결과 화면에서는 "점수/매칭명"을 1순위, "세부 근거"를 2순위, "저장/재분석"을 3순위로 고정한다.
+
+### 화면 구조(ASCII)
+```text
+HOME(MAP)
+ ├─ Primary: 온보딩 카드 + 지도 클릭 유도
+ ├─ Secondary: 히스토리 진입(모바일 FAB / 데스크톱 사이드 패널)
+ └─ Background: Kakao Terrain Map
+
+SURVEY(BOTTOM SHEET)
+ ├─ Primary: 단일 질문 + 즉시 분석 시작
+ └─ Secondary: 맵 컨텍스트 유지(뒤 배경 블러)
+
+LOADING(OVERLAY)
+ ├─ Primary: 8방위 스캔 진행 감각
+ └─ Secondary: 현재 상태 텍스트
+
+RESULT(OVERLAY)
+ ├─ Primary: 총점 + 역사 매칭명
+ ├─ Secondary: 레이더 차트 + 5축 점수
+ └─ Tertiary: 다운로드/재분석
+```
+
+---
+
+## Pass 2. Interaction State Coverage
+
+- 점수: **5/10 → 9/10**
+
+| FEATURE | LOADING | EMPTY | ERROR | SUCCESS | PARTIAL |
+|---|---|---|---|---|---|
+| 지도 초기 화면 | 지도 타일 로드 중 스켈레톤 없음, 1.2s 이상 지연 시 "지도를 불러오는 중" 텍스트 표시 | 히스토리 0건 시 "기록된 명당이 없습니다" + "첫 스캔 시작" CTA | 지도 SDK 실패 시 "지도 연결 실패" + 재시도 버튼 | 지도 클릭 가능 상태 | - |
+| 설문 바텀시트 | 버튼 누른 직후 200ms 버튼 비활성화 | - | 분석 API 호출 실패 시 감성 에러 오버레이로 전환 | 선택 즉시 로딩 오버레이 전환 | - |
+| 로딩 오버레이 | 8방위 스캔 애니메이션 + 진행 문구 | - | 5초 초과 시 "응답 지연" 문구 + 재시도 | 결과 오버레이 전환 | `isPartial=true`일 경우 결과 상단 경고 배지 |
+| 결과 카드 | 다운로드 중 버튼 스피너 + 중복 클릭 차단 | 데이터 부족 시 차트 대신 "분석 근거 부족" 안내 카드 | 다운로드 실패 토스트/알림 | 점수/매칭/차트/근거 노출 | POI 누락 배지 + "일부 분석 누락" 문구 |
+| 히스토리 | 로컬스토리지 파싱 중 1프레임 로딩 | 0건 Empty 컴포넌트 | JSON 파손 시 자동 초기화 후 안내 문구 | 최근 10개 FIFO 리스트 표시 | - |
+
+---
+
+## Pass 3. User Journey & Emotional Arc
+
+- 점수: **6/10 → 9/10**
+
+| STEP | USER DOES | USER FEELS | PLAN SPECIFIES? |
+|---|---|---|---|
+| 1 | 첫 진입, 지도 확인 | "재밌겠다/신기하다" | 예 (온보딩 문구, 골드 강조) |
+| 2 | 관심 지점 클릭 | "내가 고른 곳이 맞나" | 예 (설문 바텀시트 즉시 노출) |
+| 3 | 분석 대기 | "빨리 결과 보고 싶다" | 예 (스캔 애니메이션, 대기 카피) |
+| 4 | 결과 확인 | "오 이 점수는 공유하고 싶다" | 예 (점수/매칭명/레이다 차트) |
+| 5 | 상세 근거 확인 | "왜 이런 점수인지 납득" | 예 (축별 모달 설명) |
+| 6 | 저장/재시도 | "다른 위치도 보고 싶다" | 예 (저장 버튼, 재분석 버튼) |
+
+감정 설계 규칙:
+- 5초: 브랜드 인지(골드 + 질문형 카피)
+- 5분: 반복 탐색(히스토리/재분석 루프)
+- 장기: "디지털 부적" 저장 습관 형성
+
+---
+
+## Pass 4. AI Slop Risk
+
+- 점수: **6/10 → 9/10**
+
+### 제거/금지 규칙
+- 금지: 일반적 3열 SaaS 카드 그리드, 아이콘 원형 반복 패턴 남발, 보라-인디고 기본 그라디언트, 의미 없는 장식 블롭.
+- 금지: "clean modern" 같은 모호 문구.
+
+### 구체 규격으로 치환
+- Hero는 "지도+질문" 단일 목적 구성.
+- 각 섹션은 한 가지 역할만 수행:
+  - 홈: 클릭 유도
+  - 설문: 시작 트리거
+  - 로딩: 진행 체감
+  - 결과: 신뢰 + 공유
+- 카드 사용은 결과/기록처럼 상호작용 단위에만 허용.
+
+---
+
+## Pass 5. Design System Alignment
+
+- 점수: **4/10 → 8/10**
+
+`DESIGN.md` 부재로 임시 토큰 계약을 플랜에 잠금:
+
+### Interim Tokens
+- Color
+  - `fengshui-gold: #fbc531`
+  - `fengshui-navy: #1a1a2e`
+  - 배경 기준: `#0c0c1e`
+- Radius
+  - 카드 대형: `40px`
+  - 모달/시트: `32px~48px`
+- Motion
+  - 상태 전환: `300~1000ms`
+  - 로딩 스캔: 순차 지연 애니메이션 유지
+- Components to reuse
+  - `MapView`, `ResultCard`, `RadarChart`, `CollectionList`
+
+권고: 다음 사이클에서 `/design-consultation`으로 `DESIGN.md` 정식 생성.
+
+---
+
+## Pass 6. Responsive & Accessibility
+
+- 점수: **5/10 → 9/10**
+
+### Responsive Lock
+- Mobile (≤768): 히스토리 FAB + 바텀시트 중심, 결과 CTA는 하단 고정 영역.
+- Tablet (769~1279): 결과 카드 폭 420px 이하 유지, 오버레이 패딩 축소.
+- Desktop (≥1280): 우측 히스토리 사이드 패널 노출, 메인 중심축은 결과 카드.
+
+### Accessibility Lock
+- 터치 타깃: 최소 `44x44px`.
+- 본문 텍스트: 최소 `16px` 등가 가독성 확보.
+- 대비: 본문 `4.5:1` 이상, 큰 텍스트/아이콘 `3:1` 이상.
+- 모달/오버레이: ESC 닫기, 포커스 트랩, 닫기 버튼 `aria-label` 필수.
+- 차트 포인트: 키보드 포커스 가능 요소로 제공(마우스 전용 금지).
+
+---
+
+## Pass 7. Unresolved Design Decisions
+
+- 점수: **6/10 → 8/10**
+
+| DECISION NEEDED | IF DEFERRED, WHAT HAPPENS |
+|---|---|
+| 다운로드 실패 UX를 alert에서 토스트로 바꿀지 | 모바일에서 맥락 끊김/거친 경험 유지 |
+| 히스토리 카드 정보량(날짜/좌표/점수) 확장 수준 | 리스트 가독성과 정보밀도 균형 흔들림 |
+
+현재 라운드에서는 구현 리스크가 낮은 범위만 잠그고, 위 2개는 후속 TODO로 이관.
+
+---
+
+## NOT in scope
+- DB 연동 기반 전국 히트맵 시각화 (Phase 2)
+- 카카오 공유 배틀 초대 흐름 (Phase 2)
+- 실시간 멀티유저 랭킹/리더보드
+
+## What already exists
+- UI 컴포넌트: `MapView`, `ResultCard`, `RadarChart`, `CollectionList`
+- 토큰: `tailwind.config.js`의 `fengshui-gold`, `fengshui-navy`
+- UX 패턴: 맵 퍼스트 플로우, 설문 바텀시트, 로딩/에러/결과 오버레이, 모바일 히스토리 오버레이
+
+## TODOS 제안
+1. 다운로드 실패 처리 UX를 토스트 패턴으로 통일.
+2. 오버레이/모달 접근성(포커스 트랩, ESC, aria-label) 구현 완료.
+3. `DESIGN.md` 정식 생성 및 토큰/타이포/모션 룰 분리.
+
+## DESIGN PLAN REVIEW — COMPLETION SUMMARY
+
+| Item | Result |
+|---|---|
+| System Audit | DESIGN.md 부재, UI scope 존재 |
+| Step 0 | 7/10, 핵심 갭 3개(상태/반응형/접근성) |
+| Pass 1 (Info Arch) | 6/10 → 9/10 |
+| Pass 2 (States) | 5/10 → 9/10 |
+| Pass 3 (Journey) | 6/10 → 9/10 |
+| Pass 4 (AI Slop) | 6/10 → 9/10 |
+| Pass 5 (Design Sys) | 4/10 → 8/10 |
+| Pass 6 (Responsive) | 5/10 → 9/10 |
+| Pass 7 (Decisions) | 6/10 → 8/10 |
+| Decisions made | 9 |
+| Decisions deferred | 2 |
+| Overall design score | **7/10 → 8.7/10** |
+
+결론: 플랜은 구현 가능한 디자인 규격 수준에 도달. 다음 게이트로 `/plan-eng-review` 권장.
+
+## Engineering Plan Review (2026-04-21)
+
+Generated by /plan-eng-review on 2026-04-21
+Branch: master | Mode: SCOPE REDUCTION
+
+### Scope Gate (Step 0)
+- 선택: **A) Scope reduction**
+- 이유: 현재 코드베이스는 기능은 동작하지만 계약(에러/시그니처/테스트/접근성) 일관성이 낮아, 신규 기능 확장보다 기반 안정화가 ROI가 높음.
+
+### Decisions Locked (Sections 1-4)
+1. `SIGNING_KEY`를 `KAKAO_REST_KEY`와 분리한다. (보안 경계 분리)
+2. `src/app/api/share/route.tsx`를 `route.ts`로 정규화한다. (Next.js 파일 컨벤션 일치)
+3. `/api/analyze`에 좌표 TTL 캐시 + 레이트리밋을 추가한다. (중복 호출/폭주 보호)
+4. API 에러 코드 계약을 단일 스키마로 통일한다. (프런트 처리 일관성)
+5. `useFengshuiFlow`로 페이지 오케스트레이션을 분리한다. (복잡도 제어)
+6. 시그니처 생성/검증 로직을 공용 모듈로 중앙화한다. (중복 제거)
+7. 테스트 게이트를 의무화한다: engine/API/share + 최소 1개 E2E 플로우.
+8. 외부 API 호출 병렬화 + 공유 응답 캐싱을 적용한다. (체감 지연 단축)
+
+### NOT in scope (이번 사이클 제외)
+- Supabase 연동 기반 전국 히트맵
+- 카카오 배틀 초대 플로우
+- 실시간 멀티유저 리더보드
+- 모바일 네이티브 앱 패키징
+
+### What already exists (재사용 자산)
+- API: `src/app/api/analyze/route.ts`, `src/app/api/share/route.tsx`
+- 도메인 로직: `src/lib/fengshui/engine.ts`, `strategies.ts`, `storage.ts`
+- UI: `MapView`, `ResultCard`, `CollectionList`
+- 기본 테스트 기반: `tests/strategies.test.ts` + Vitest 설정
+
+### Failure Modes & Critical Gaps
+
+| Failure Mode | Current Risk | Critical Gap | Lock-in Mitigation |
+|---|---|---|---|
+| 시그니처 키 유출/재사용 | High | 앱 키와 서명 키 경계가 없음 | `SIGNING_KEY` 분리 + rotate 가능 구조 |
+| share 라우트 컨벤션 불일치 | Medium | `route.tsx` 사용으로 유지보수 혼선 | `route.ts` 정규화 + 라우트 테스트 추가 |
+| analyze 과호출 | High | 캐시/레이트리밋 부재 | 좌표 TTL 캐시 + IP/세션 기반 제한 |
+| 에러 UX 분열 | Medium | 에러 포맷/코드가 경로마다 다름 | 공통 에러 코드 계약 + UI 매핑 테이블 |
+| page.tsx 비대화 | Medium | 상태/네트워크/뷰 로직 결합 | `useFengshuiFlow` 훅으로 분리 |
+| 회귀 미검출 | High | 전략 테스트 외 커버리지 부족 | API/share/E2E 최소 게이트 도입 |
+
+### Worktree Parallelization Plan
+
+| Lane | Worktree Branch | Focus | Output |
+|---|---|---|---|
+| Lane A | `refactor/signature-contract` | signing module + error contract | 공용 util + API 응답 스키마 통일 |
+| Lane B | `perf/analyze-cache-limit` | TTL cache + rate limit + API 병렬화 | p95 지연 단축, 과호출 제어 |
+| Lane C | `test/coverage-gate` | engine/API/share/E2E 테스트 | 병합 전 회귀 방지 게이트 |
+| Lane D | `ux/accessibility-polish` | 모달 접근성/토스트/차트 상호작용 | TODO #2 완료 기준 충족 |
+
+### TODO Proposal Decisions (Closure)
+1. 다운로드 실패 UX 토스트 통일 → **A) `TODOS.md`에 추가 (확정)**
+2. 오버레이/모달 접근성 구현 완료 → **A) 이번 스프린트 P0로 즉시 수행**
+3. `DESIGN.md` 정식 생성 → **A) 이번 스프린트 P1로 생성/고정**
+
+### Review Completion Summary
+- 상태: **/plan-eng-review 의사결정 단계 완료**
+- 이번 사이클 산출물: `test-plan.md` 확장, `TODOS.md` 생성, `DESIGN.md` 생성
+- 다음 실행 순서: Lane A → Lane B → Lane C(병렬 일부) → Lane D
+- 종료 기준: 타입체크/테스트/핵심 E2E 통과 + TODO #2 체크 완료
+
+### Execution Update (2026-04-22)
+- Lane A 완료: 공용 signature 모듈화 + analyze/share 에러 코드 계약 통일 + share route 정규화(`route.ts`)
+- Lane B 완료: analyze TTL 캐시 + IP rate limit + Kakao 외부 호출 병렬화
+- Lane C 완료: analyze/share 라우트 테스트 + 최소 analyze→share 통합 플로우 테스트 추가
+- Lane D 완료: 다운로드 실패 toast 통일, 모달/오버레이 ESC·focus trap·aria-label 적용, 차트 키보드 상호작용 강화
+- 검증 상태: `vitest` 전체 통과, `next build` 통과

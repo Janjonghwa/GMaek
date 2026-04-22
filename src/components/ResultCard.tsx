@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FengShuiResult } from '@/lib/fengshui/types';
 import { RadarChart } from './RadarChart';
-import { Sparkles, Download, Loader2, X } from 'lucide-react';
+import { Sparkles, Download, Loader2, X, ChevronRight } from 'lucide-react';
 
 interface ResultCardProps {
   data: FengShuiResult;
@@ -12,6 +12,7 @@ interface ResultCardProps {
 
 export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownload, isDownloading }) => {
   const [selectedInfo, setSelectedInfo] = useState<{ label: string, reason: string } | null>(null);
+  const modalRef = useRef<HTMLDivElement | null>(null);
 
   const showDetail = (index: number) => {
     const labels = ['배산', '임수', '안정', '현대', '균형'];
@@ -21,12 +22,39 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
     });
   };
 
+  useEffect(() => {
+    if (!selectedInfo || !modalRef.current) return;
+
+    const focusable = modalRef.current.querySelectorAll<HTMLElement>('button, [href], [tabindex]:not([tabindex="-1"])');
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    first?.focus();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedInfo(null);
+        return;
+      }
+
+      if (event.key !== 'Tab' || focusable.length === 0) return;
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [selectedInfo]);
+
   return (
     <div className="absolute inset-0 bg-[#0c0c1e] z-[70] flex flex-col items-center overflow-y-auto pt-10 pb-20 px-6 animate-in fade-in zoom-in-95 duration-1000">
       
-      {/* 결과 영역 (화면 표시용) */}
       <div className="w-full max-w-[400px] bg-[#0c0c1e] p-8 rounded-[40px] flex flex-col items-center relative overflow-hidden">
-        {/* 배경 기운 */}
         <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
           <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,#1a1a2e_0%,transparent_50%)] animate-spin-slow" />
         </div>
@@ -46,10 +74,15 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
 
         <RadarChart scores={data.scores} onPointClick={showDetail} />
 
+        {/* 디자인 리뷰 1번: 버튼 가독성 및 클릭 유도 강화 */}
         <div className="w-full grid grid-cols-5 gap-2 mb-10">
           {['배산', '임수', '안정', '현대', '균형'].map((label, i) => (
-            <button key={i} onClick={() => showDetail(i)} className="flex flex-col items-center bg-white/5 py-5 rounded-[24px] border border-white/10 hover:bg-white/10 transition-all active:scale-90">
-              <span className="text-white/20 text-[10px] font-[900] mb-1">{label}</span>
+            <button 
+              key={i} 
+              onClick={() => showDetail(i)} 
+              className="flex flex-col items-center bg-white/10 py-5 rounded-[24px] border border-white/20 hover:bg-white/20 hover:border-fengshui-gold/40 transition-all active:scale-90 shadow-lg"
+            >
+              <span className="text-white/40 text-[10px] font-[900] mb-1">{label}</span>
               <span className="text-fengshui-gold font-[1000] text-lg">{data.scores[i]}</span>
             </button>
           ))}
@@ -65,7 +98,6 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
         </div>
       </div>
 
-      {/* 하단 컨트롤 */}
       <div className="w-full max-w-[400px] mt-10 space-y-4 px-2 relative z-10">
         <button 
           onClick={onDownload}
@@ -79,12 +111,11 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
         <button onClick={onReset} className="w-full py-4 text-white/30 text-sm font-black uppercase tracking-[0.2em] hover:text-white/60 transition-colors">Analyze New Land</button>
       </div>
 
-      {/* 모달 */}
       {selectedInfo && (
         <div className="absolute inset-0 z-[100] flex items-center justify-center p-10 animate-in fade-in duration-300">
-          <div className="absolute inset-0 bg-black/90 backdrop-blur-md" onClick={() => setSelectedInfo(null)} />
-          <div className="bg-[#1a1a2e] w-full max-w-md rounded-[48px] p-10 border border-white/10 shadow-[0_0_100px_rgba(0,0,0,1)] relative animate-in zoom-in-95 slide-in-from-bottom-20 duration-500">
-            <button onClick={() => setSelectedInfo(null)} className="absolute top-8 right-8 p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
+          <div className="absolute inset-0 bg-black/90 backdrop-blur-md" onClick={() => setSelectedInfo(null)} aria-hidden="true" />
+          <div ref={modalRef} role="dialog" aria-modal="true" aria-label={`${selectedInfo.label} 분석 상세`} className="bg-[#1a1a2e] w-full max-w-md rounded-[48px] p-10 border border-white/10 shadow-[0_0_100px_rgba(0,0,0,1)] relative animate-in zoom-in-95 slide-in-from-bottom-20 duration-500">
+            <button onClick={() => setSelectedInfo(null)} aria-label="상세 모달 닫기" className="absolute top-8 right-8 p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
               <X className="w-6 h-6 text-white/40" />
             </button>
             <div className="flex items-center gap-5 mb-10">
@@ -96,7 +127,12 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
             <p className="text-white/90 text-2xl leading-snug font-bold break-keep mb-8 tracking-tighter">
               {selectedInfo.reason}
             </p>
-            <p className="text-white/20 text-sm font-bold uppercase tracking-widest border-t border-white/5 pt-8">Verified GIS Geomancy Algorithm</p>
+            <div className="flex items-center justify-between border-t border-white/5 pt-8">
+              <p className="text-white/20 text-sm font-bold uppercase tracking-widest">Verified GIS Algorithm</p>
+              <button onClick={() => setSelectedInfo(null)} aria-label="상세 모달 확인 후 닫기" className="text-fengshui-gold font-bold flex items-center gap-1 group">
+                확인 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
           </div>
         </div>
       )}
