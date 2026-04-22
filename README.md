@@ -1,3 +1,4 @@
+<img width="1272" height="1056" alt="스크린샷 2026-04-22 163541" src="https://github.com/user-attachments/assets/54014ced-a434-4996-9bf6-8e79b0c396e8" />
 <div align="center">
   <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js" alt="Next.js" />
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
@@ -102,11 +103,16 @@ yarn dev
 
 *(여기에 나중에 스크린샷 이미지들을 추가해 주세요)*
 
-- **Main Map & Radar Scanner**: `<img width="1272" height="1056" alt="image" src="https://github.com/user-attachments/assets/7497b7f2-02f0-41a1-9115-4fe45877b688" />
-`
-- **Result Card & Radar Chart**: `![Result](placeholder)`
-- **My Collection Dashboard**: `![Collection](placeholder)`
+- **Main Map & Radar Scanner**:
+ <img width="1272" height="1056" alt="스크린샷 2026-04-22 163541" src="https://github.com/user-attachments/assets/1528e901-5cc1-4c2c-8f8c-922940a12d32" />
+ <img width="1265" height="1025" alt="image" src="https://github.com/user-attachments/assets/50352efc-7798-4cf9-a41c-64cd2370d9b1" />
+ 
+- **Result Card & Radar Chart**:
+<img width="2373" height="1287" alt="image" src="https://github.com/user-attachments/assets/a331fef1-40fb-480e-aedb-927b6ef50e39" />
 
+- **My Collection Dashboard**: `![Collection](placeholder)`
+  <img width="1080" height="1920" alt="지맥-부적-1776843477869" src="https://github.com/user-attachments/assets/f1a0fa8c-9e48-476b-81a5-f5936778e749" />
+  
 ---
 
 ## 📝 라이선스 (License)
