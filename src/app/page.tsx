@@ -233,6 +233,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </div>
 
         {/* 로딩 화면 - 8방위 정밀 스캔 시각화 (Pass 3) */}
         {step === 'loading' && (
