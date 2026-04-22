@@ -79,7 +79,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
 
   return (
     <div className="absolute inset-0 bg-[#0c0c1e] z-[70] flex flex-col items-center overflow-y-auto pt-10 pb-20 px-6 animate-in fade-in zoom-in-95 duration-1000">
-      
+
       <div className="w-full max-w-[400px] bg-[#0c0c1e] p-8 rounded-[40px] flex flex-col items-center relative pb-12">
         <div className="absolute inset-0 rounded-[40px] overflow-hidden pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full opacity-30">
@@ -120,7 +120,13 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
         </h1>
 
         <p className="text-white/30 text-[13px] font-semibold mt-1 mb-2">
-          {(data.historicalMatch || '명당').split('(')[0].trim()}과 같은 유형의 터
+          {(() => {
+            const name = (data.historicalMatch || '명당').split('(')[0].trim();
+            const last = name[name.length - 1];
+            const code = last?.charCodeAt(0) ?? 0;
+            const hasBatchim = code >= 0xAC00 && ((code - 0xAC00) % 28) !== 0;
+            return `${name}${hasBatchim ? '과' : '와'} 같은 유형의 터`;
+          })()}
         </p>
 
         {data.historicalMatch?.includes('(') && (
@@ -141,9 +147,9 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
         {/* 디자인 리뷰 1번: 버튼 가독성 및 클릭 유도 강화 */}
         <div className="w-full grid grid-cols-5 gap-2 mb-10 relative z-10 mt-8">
           {['배산', '임수', '안정', '현대', '균형'].map((label, i) => (
-            <button 
-              key={i} 
-              onClick={() => showDetail(i)} 
+            <button
+              key={i}
+              onClick={() => showDetail(i)}
               className="flex flex-col items-center bg-white/10 py-5 rounded-[24px] border border-white/20 hover:bg-white/20 hover:border-fengshui-gold/40 transition-all active:scale-90 shadow-lg"
             >
               <span className="text-white/40 text-[10px] font-[900] mb-1">{label}</span>
@@ -163,7 +169,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
       </div>
 
       <div className="w-full max-w-[400px] mt-10 space-y-4 px-2 relative z-10">
-        <button 
+        <button
           onClick={onDownload}
           disabled={isDownloading}
           className="w-full py-6 bg-fengshui-gold text-black rounded-[32px] font-[1000] text-2xl shadow-[0_20px_50px_rgba(251,197,49,0.3)] flex items-center justify-center gap-4 active:scale-95 transition-all disabled:opacity-50"
@@ -171,7 +177,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
           {isDownloading ? <Loader2 className="w-7 h-7 animate-spin" /> : <Download className="w-7 h-7" />}
           명당 카드 저장하기
         </button>
-        
+
         <button onClick={onReset} className="w-full py-4 text-white/30 text-sm font-black tracking-[0.2em] hover:text-white/60 transition-colors">새로운 터 감정하기</button>
       </div>
 
@@ -188,7 +194,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
               </div>
               <h3 className="text-3xl font-[1000] text-fengshui-gold tracking-tight">{selectedInfo.label} 분석</h3>
             </div>
-            
+
             <div className="flex flex-col gap-2 mb-6 bg-white/5 p-4 rounded-2xl border border-white/5">
               <h4 className="text-fengshui-gold/90 font-[900] text-sm">💡 {selectedInfo.title}이란?</h4>
               <p className="text-white/70 text-sm leading-relaxed break-keep">{selectedInfo.desc}</p>
