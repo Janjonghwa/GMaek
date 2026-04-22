@@ -43,30 +43,19 @@ export const analyzeFengShui = async (lat: number, lng: number): Promise<FengShu
   try {
     let elevs: number[];
     try {
-      // VWorld 고도 API (DEM) 사용 - 9개 지점 병렬 요청
-      const elevationPromises = samplePoints.map(p =>
-        axios.get('http://api.vworld.kr/req/dem', {
-          params: {
-            key: vworldApiKey,
-            service: 'dem',
-            request: 'getdem',
-            location: `${p.lng},${p.lat}`,
-            format: 'json',
-            domain: 'localhost' // 브이월드 API는 호출 도메인 인증이 엄격할 수 있습니다
-          },
-          timeout: 5000
-        }).then(res => {
-          // VWorld 응답 구조는 res.data.response.result.den 입니다.
-          // 만약 404나 에러가 나면 0을 반환하여 시뮬레이션으로 넘어가게 합니다.
-          if (res.data?.response?.status === 'NOT_FOUND' || res.data?.response?.status === 'ERROR') {
-            return 0;
-          }
-          const val = res.data?.response?.result?.den;
-          return val ? parseFloat(val) : 0;
-        })
-      );
+      // Open-Elevation Batch API 사용 (9개 지점 한 번에 요청하여 속도 개선)
+      const response = await axios.post('https://api.open-elevation.com/api/v1/lookup', {
+        locations: samplePoints.map(p => ({
+          latitude: p.lat,
+          longitude: p.lng
+        }))
+      }, { timeout: 10000 });
 
-      elevs = await Promise.all(elevationPromises);
+      if (response.data?.results) {
+        elevs = response.data.results.map((r: any) => r.elevation || 0);
+      } else {
+        throw new Error('Invalid Open-Elevation response');
+      }
 
       // 만약 모든 고도가 0이라면 실패로 간주하고 시뮬레이션으로 전환
       if (elevs.every(e => e === 0)) {
