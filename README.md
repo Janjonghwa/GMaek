@@ -102,7 +102,8 @@ yarn dev
 
 *(여기에 나중에 스크린샷 이미지들을 추가해 주세요)*
 
-- **Main Map & Radar Scanner**: `![Scanner](placeholder)`
+- **Main Map & Radar Scanner**: `<img width="1272" height="1056" alt="image" src="https://github.com/user-attachments/assets/7497b7f2-02f0-41a1-9115-4fe45877b688" />
+`
 - **Result Card & Radar Chart**: `![Result](placeholder)`
 - **My Collection Dashboard**: `![Collection](placeholder)`
 
