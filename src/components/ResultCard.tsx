@@ -79,9 +79,11 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
   return (
     <div className="absolute inset-0 bg-[#0c0c1e] z-[70] flex flex-col items-center overflow-y-auto pt-10 pb-20 px-6 animate-in fade-in zoom-in-95 duration-1000">
       
-      <div className="w-full max-w-[400px] bg-[#0c0c1e] p-8 rounded-[40px] flex flex-col items-center relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
-          <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,#1a1a2e_0%,transparent_50%)] animate-spin-slow" />
+      <div className="w-full max-w-[400px] bg-[#0c0c1e] p-8 rounded-[40px] flex flex-col items-center relative pb-12">
+        <div className="absolute inset-0 rounded-[40px] overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full opacity-30">
+            <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle_at_center,#1a1a2e_0%,transparent_50%)] animate-spin-slow" />
+          </div>
         </div>
 
         <div className="mb-8 text-8xl drop-shadow-[0_0_30px_rgba(251,197,49,0.4)]">
