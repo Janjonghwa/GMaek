@@ -43,18 +43,17 @@ export const analyzeFengShui = async (lat: number, lng: number): Promise<FengShu
   try {
     let elevs: number[];
     try {
-      // Open-Elevation Batch API 사용 (9개 지점 한 번에 요청하여 속도 개선)
-      const response = await axios.post('https://api.open-elevation.com/api/v1/lookup', {
-        locations: samplePoints.map(p => ({
-          latitude: p.lat,
-          longitude: p.lng
-        }))
-      }, { timeout: 10000 });
+      // Open-Meteo Elevation API 사용 (매우 빠르고 안정적임)
+      const lats = samplePoints.map(p => p.lat).join(',');
+      const lngs = samplePoints.map(p => p.lng).join(',');
+      const response = await axios.get(`https://api.open-meteo.com/v1/elevation?latitude=${lats}&longitude=${lngs}`, {
+        timeout: 5000 
+      });
 
-      if (response.data?.results) {
-        elevs = response.data.results.map((r: any) => r.elevation || 0);
+      if (response.data?.elevation) {
+        elevs = response.data.elevation;
       } else {
-        throw new Error('Invalid Open-Elevation response');
+        throw new Error('Invalid Open-Meteo response');
       }
 
       // 만약 모든 고도가 0이라면 실패로 간주하고 시뮬레이션으로 전환
