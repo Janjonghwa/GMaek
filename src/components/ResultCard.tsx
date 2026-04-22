@@ -87,8 +87,25 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
         <div className="mb-8 text-8xl drop-shadow-[0_0_30px_rgba(251,197,49,0.4)]">
           {data.score >= 90 ? '🌻' : data.score >= 80 ? '🌿' : '🌱'}
         </div>
-        <h1 className="text-4xl font-[1000] text-fengshui-gold mb-2 tracking-[calc(-0.05em)] text-center">
-          {data.historicalMatch || '명당'}
+
+        {data.address && (
+          <div className="mb-4 text-white/70 text-sm font-bold bg-white/5 px-4 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5">
+            <span className="text-fengshui-gold">📍</span> {data.address}
+          </div>
+        )}
+
+        <h1 className="text-[32px] font-[1000] text-fengshui-gold mb-2 tracking-[calc(-0.05em)] text-center leading-tight">
+          {(data.historicalMatch || '명당').split('(').map((part, index) => (
+            <React.Fragment key={index}>
+              {index > 0 ? (
+                <span className="text-xl text-fengshui-gold/70 mt-2 block font-black">
+                  ({part}
+                </span>
+              ) : (
+                part.trim()
+              )}
+            </React.Fragment>
+          ))}
         </h1>
         
         <div className="flex flex-col items-center mb-10 relative">

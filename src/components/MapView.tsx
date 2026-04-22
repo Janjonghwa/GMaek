@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
 interface MapViewProps {
-  onMapClick: (lat: number, lng: number) => void;
+  onMapClick: (lat: number, lng: number, address: string) => void;
   isBlurred: boolean;
 }
 
@@ -31,13 +31,23 @@ export const MapView: React.FC<MapViewProps> = ({ onMapClick, isBlurred }) => {
 
           kakao.maps.event.addListener(newMap, 'click', (mouseEvent: any) => {
             const latlng = mouseEvent.latLng;
-            onMapClick(latlng.getLat(), latlng.getLng());
+            const lat = latlng.getLat();
+            const lng = latlng.getLng();
+            
+            const geocoder = new kakao.maps.services.Geocoder();
+            geocoder.coord2Address(lng, lat, (result: any, status: any) => {
+              let address = '선택된 위치';
+              if (status === kakao.maps.services.Status.OK && result.length > 0) {
+                address = result[0].address ? result[0].address.address_name : result[0].road_address?.address_name || '선택된 위치';
+              }
+              onMapClick(lat, lng, address);
+            });
           });
         });
       }
     }, 100);
     return () => clearInterval(timer);
-  }, []); 
+  }, [onMapClick]); 
 
   return (
     <div 

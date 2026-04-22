@@ -11,7 +11,7 @@ import { addHistory } from '@/lib/fengshui/storage';
 
 export default function Home() {
   const [step, setStep] = useState<'map' | 'survey' | 'loading' | 'result' | 'error'>('map');
-  const [clickedCoord, setClickedCoord] = useState<{ lat: number; lng: number } | null>(null);
+  const [clickedCoord, setClickedCoord] = useState<{ lat: number; lng: number; address?: string } | null>(null);
   const [analysisData, setAnalysisData] = useState<FengShuiResult | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [isSaving, setIsSaving] = useState(false);
@@ -42,10 +42,10 @@ export default function Home() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [showHistory]);
 
-  const handleMapClick = useCallback((lat: number, lng: number) => {
+  const handleMapClick = useCallback((lat: number, lng: number, address: string) => {
     setStep(prev => {
       if (prev === 'loading' || prev === 'result') return prev;
-      setClickedCoord({ lat, lng });
+      setClickedCoord({ lat, lng, address });
       return 'survey';
     });
   }, []);
@@ -66,6 +66,9 @@ export default function Home() {
       );
       
       const resultData = response.data;
+      if (clickedCoord.address) {
+        resultData.address = clickedCoord.address;
+      }
       setAnalysisData(resultData);
       
       addHistory({
@@ -197,6 +200,12 @@ export default function Home() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-fengshui-gold/15 blur-[80px] -z-10 rounded-full pointer-events-none transition-opacity duration-1000" />
         <div className="bg-gradient-to-b from-[#111827]/95 to-[#0a0f18]/95 backdrop-blur-3xl rounded-t-[48px] p-10 border-t border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_-20px_60px_rgba(0,0,0,0.8)]">
           <div className="w-20 h-1.5 bg-white/10 rounded-full mx-auto mb-8 shadow-inner" />
+          
+          <div className="bg-white/10 w-fit mx-auto px-5 py-2 rounded-full mb-6 border border-white/5 shadow-md flex items-center justify-center gap-2">
+            <MapPin className="w-4 h-4 text-fengshui-gold" />
+            <span className="text-white/90 text-sm font-bold">{clickedCoord?.address || '선택된 위치'}</span>
+          </div>
+
           <div className="flex items-center gap-4 mb-3">
             <div className="relative w-12 h-12 rounded-2xl bg-fengshui-gold/10 flex items-center justify-center overflow-hidden border border-fengshui-gold/20">
               <div className="absolute inset-0 bg-gradient-to-br from-fengshui-gold/20 to-transparent" />
@@ -208,7 +217,7 @@ export default function Home() {
           </div>
           <p className="text-white/60 text-[17px] mb-2 font-semibold leading-snug tracking-tight">현관문을 열었을 때 거울이 바로 보이나요?</p>
           <p className="bg-clip-text text-transparent bg-gradient-to-r from-fengshui-gold/80 to-amber-500/60 text-[13px] mb-8 font-bold tracking-wide">
-            * 가벼운 재미 요소입니다. 선택 즉시 지맥 분석이 시작됩니다.
+            * 가벼운 재미 요소입니다. '네' 선택 시 지맥 분석이 시작됩니다.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <button 
@@ -219,7 +228,7 @@ export default function Home() {
               <span className="relative z-10 drop-shadow-md">네, 보여요</span>
             </button>
             <button 
-              onClick={startAnalysis} 
+              onClick={() => setStep('map')} 
               className="group relative overflow-hidden py-5 rounded-[24px] bg-white/5 border border-white/10 font-[1000] text-xl text-white/80 transition-all active:scale-95 hover:bg-white/10 hover:text-white"
             >
               <span className="relative z-10">아니요</span>
