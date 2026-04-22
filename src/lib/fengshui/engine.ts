@@ -21,7 +21,7 @@ export const analyzeFengShui = async (lat: number, lng: number): Promise<FengShu
   const kakaoApiKey = process.env.KAKAO_REST_KEY;
   if (!kakaoApiKey) throw new Error('KAKAO_REST_KEY is missing');
 
-  const offset = 0.002; 
+  const offset = 0.002;
   const samplePoints = [
     { lat, lng, name: 'center' },
     { lat: lat + offset, lng, name: 'N' },
@@ -42,8 +42,8 @@ export const analyzeFengShui = async (lat: number, lng: number): Promise<FengShu
     try {
       const elevationRes = await axios.post('https://api.open-elevation.com/api/v1/lookup', {
         locations: samplePoints.map(p => ({ latitude: p.lat, longitude: p.lng }))
-      }, { timeout: 15000 });
-      
+      }, { timeout: 20000 });
+
       const results = elevationRes.data.results as ElevationResult[];
       elevs = results.map(r => r.elevation);
     } catch (e) {
@@ -52,12 +52,12 @@ export const analyzeFengShui = async (lat: number, lng: number): Promise<FengShu
       // 가상 고도 데이터 생성 (에러 방지용)
       const baseElev = Math.floor(Math.random() * 50) + 20; // 20m ~ 70m
       elevs = samplePoints.map((p, i) => {
-         if (i === 0) return baseElev;
-         // 북쪽 계열(N, NE, NW)은 약간 높게 (배산 시뮬레이션)
-         if (i === 1 || i === 2 || i === 8) return baseElev + (Math.random() * 15 + 5); 
-         // 남쪽 계열(S, SE, SW)은 약간 낮게 (임수 시뮬레이션)
-         if (i === 4 || i === 5 || i === 6) return Math.max(0, baseElev - (Math.random() * 10 + 2));
-         return baseElev + (Math.random() * 10 - 5); // 동/서
+        if (i === 0) return baseElev;
+        // 북쪽 계열(N, NE, NW)은 약간 높게 (배산 시뮬레이션)
+        if (i === 1 || i === 2 || i === 8) return baseElev + (Math.random() * 15 + 5);
+        // 남쪽 계열(S, SE, SW)은 약간 낮게 (임수 시뮬레이션)
+        if (i === 4 || i === 5 || i === 6) return Math.max(0, baseElev - (Math.random() * 10 + 2));
+        return baseElev + (Math.random() * 10 - 5); // 동/서
       });
     }
 
@@ -74,19 +74,19 @@ export const analyzeFengShui = async (lat: number, lng: number): Promise<FengShu
           headers: { Authorization: `KakaoAK ${kakaoApiKey}` },
           timeout: 2500
         });
-        
-        const filtered = res.data.documents.filter((item: any) => 
-          item.category_name.includes('하천') || item.category_name.includes('강') || 
+
+        const filtered = res.data.documents.filter((item: any) =>
+          item.category_name.includes('하천') || item.category_name.includes('강') ||
           item.category_name.includes('호수') || item.category_name.includes('물가')
         );
-        
+
         return filtered.length;
-      } catch (e) { 
+      } catch (e) {
         isPartial = true; // 2A: 검색 실패 시 부분 분석 플래그 설정
-        return 0; 
+        return 0;
       }
     };
-    
+
     const stationLookup = async () => {
       try {
         const res = await axios.get('https://dapi.kakao.com/v2/local/search/keyword.json', {
@@ -96,8 +96,8 @@ export const analyzeFengShui = async (lat: number, lng: number): Promise<FengShu
         });
         return res.data.meta.total_count;
       } catch (e) {
-        isPartial = true; 
-        return 0; 
+        isPartial = true;
+        return 0;
       }
     };
 
@@ -107,7 +107,7 @@ export const analyzeFengShui = async (lat: number, lng: number): Promise<FengShu
     ]);
 
     const result = calculateScores(elevData, { riverCount, stationCount });
-    
+
     // 최종 결과에 서명 및 신뢰도 추가
     result.isPartial = isPartial;
     result.signature = await generateSignature(result.score, result.historicalMatch || '명당');
