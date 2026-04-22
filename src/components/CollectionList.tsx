@@ -27,28 +27,32 @@ export const CollectionList: React.FC<CollectionListProps> = ({ onSelect, forceS
   }
 
   return (
-    <div className={forceShow ? "w-full space-y-4" : "absolute top-4 right-4 w-64 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl z-20 hidden md:block"}>
+    <div className={forceShow ? "w-full space-y-6" : "absolute top-4 right-4 w-72 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[32px] p-6 shadow-2xl z-20 hidden lg:block"}>
       {!forceShow && (
-        <h3 className="text-fengshui-gold font-[900] text-sm tracking-widest uppercase mb-4 flex items-center gap-2">
-          <MapPin className="w-4 h-4" /> My Collection
+        <h3 className="text-fengshui-gold font-[900] text-xs tracking-[0.2em] uppercase mb-6 flex items-center gap-2 opacity-60">
+          <MapPin className="w-3 h-3" /> My Collection
         </h3>
       )}
-      <div className="space-y-2">
+      <div className="space-y-4">
         {history.map((item, idx) => (
           <button
             key={item.id || idx}
             onClick={() => onSelect(item)}
-            className="w-full text-left p-4 rounded-[24px] bg-white/5 hover:bg-white/10 transition-all group border border-transparent hover:border-white/10 flex justify-between items-center active:scale-95"
+            className="w-full text-left p-5 rounded-[28px] bg-white/5 hover:bg-white/10 transition-all group border border-transparent hover:border-white/10 flex justify-between items-center active:scale-95 shadow-sm"
           >
             <div className="overflow-hidden">
-              <div className="text-white font-bold text-sm truncate pr-2">
+              <div className="text-white font-bold text-[15px] truncate pr-2 group-hover:text-fengshui-gold transition-colors">
                 {item.result.historicalMatch || '명당 분석 기록'}
               </div>
-              <div className="text-white/40 text-xs font-medium mt-1">
-                {item.result.score}점 • {new Date(item.timestamp).toLocaleDateString()}
+              <div className="text-white/30 text-xs font-medium mt-1.5 flex items-center gap-2">
+                <span className="text-fengshui-gold/80">{item.result.score}점</span>
+                <span className="w-1 h-1 rounded-full bg-white/10" />
+                <span>{new Date(item.timestamp).toLocaleDateString()}</span>
               </div>
             </div>
-            <ArrowRight className="w-4 h-4 text-white/20 group-hover:text-fengshui-gold transition-colors flex-shrink-0" />
+            <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-fengshui-gold transition-all flex-shrink-0 ml-2">
+              <ArrowRight className="w-4 h-4 text-white/20 group-hover:text-black transition-colors" />
+            </div>
           </button>
         ))}
       </div>
