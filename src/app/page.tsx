@@ -225,7 +225,7 @@ export default function Home() {
               className="group relative overflow-hidden py-5 rounded-[24px] bg-gradient-to-br from-white/10 to-white/5 border border-fengshui-gold/40 font-[1000] text-xl text-fengshui-gold transition-all active:scale-95 hover:shadow-[0_0_30px_rgba(251,197,49,0.2)] hover:border-fengshui-gold/70"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-fengshui-gold/0 via-fengshui-gold/10 to-fengshui-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-              <span className="relative z-10 drop-shadow-md">좋아 보여요</span>
+              <span className="relative z-10 drop-shadow-md">네, 보여요</span>
             </button>
             <button 
               onClick={() => setStep('map')} 
