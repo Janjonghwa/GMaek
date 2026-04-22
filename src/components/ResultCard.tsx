@@ -87,12 +87,9 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
           </div>
         </div>
 
-        <div className="mb-6 text-8xl drop-shadow-[0_0_30px_rgba(251,197,49,0.4)]">
-          {data.score >= 90 ? '🌻' : data.score >= 80 ? '🌿' : '🌱'}
-        </div>
-
+        {/* 1. 지도 (최상단) */}
         {data.lat && data.lng && (
-          <div className="w-full px-2 mb-6 relative group">
+          <div className="w-full mb-4 relative group">
             <div className="absolute -inset-1 bg-fengshui-gold/20 rounded-[34px] blur-md opacity-50 group-hover:opacity-100 transition-opacity" />
             <div className="w-full h-40 rounded-[32px] border-2 border-fengshui-gold/40 overflow-hidden relative shadow-2xl bg-[#0c0c1e]">
               <MiniMap lat={data.lat} lng={data.lng} />
@@ -101,30 +98,38 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
           </div>
         )}
 
+        {/* 2. 위치 주소 */}
         {data.address && (
-          <div className="mb-4 text-white/70 text-sm font-bold bg-white/5 px-4 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5">
+          <div className="mb-6 text-white/70 text-sm font-bold bg-white/5 px-4 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5">
             <span className="text-fengshui-gold">📍</span> {data.address}
           </div>
         )}
 
-        <div className="mt-2 mb-1">
-          <span className="text-fengshui-gold/40 text-[10px] font-[1000] tracking-[0.3em] uppercase">풍수지리 터의 유형</span>
+        {/* 3. 이모지 */}
+        <div className="mb-4 text-7xl drop-shadow-[0_0_30px_rgba(251,197,49,0.4)]">
+          {data.score >= 90 ? '🌻' : data.score >= 80 ? '🌿' : '🌱'}
         </div>
-        
-        <h1 className="text-[30px] font-[1000] text-fengshui-gold mb-2 tracking-[calc(-0.03em)] text-center leading-tight px-4">
-          {(data.historicalMatch || '명당').split('(').map((part, index) => (
-            <React.Fragment key={index}>
-              {index > 0 ? (
-                <span className="text-lg text-fengshui-gold/60 mt-1 block font-black">
-                  ({part.replace(')', '')})
-                </span>
-              ) : (
-                <span className="block">{part.trim()}과 같은 유형</span>
-              )}
-            </React.Fragment>
-          ))}
+
+        {/* 4. 제목 + 유형 설명 */}
+        <div className="mb-1">
+          <span className="text-fengshui-gold/40 text-[10px] font-[1000] tracking-[0.3em]">풍수지리 터의 유형</span>
+        </div>
+
+        <h1 className="text-[32px] font-[1000] text-fengshui-gold tracking-tight text-center leading-tight">
+          {(data.historicalMatch || '명당').split('(')[0].trim()}
         </h1>
-        
+
+        <p className="text-white/30 text-[13px] font-semibold mt-1 mb-2">
+          {(data.historicalMatch || '명당').split('(')[0].trim()}과 같은 유형의 터
+        </p>
+
+        {data.historicalMatch?.includes('(') && (
+          <span className="text-fengshui-gold/60 text-sm font-black mb-4 block">
+            ({data.historicalMatch.split('(')[1]?.replace(')', '')})
+          </span>
+        )}
+
+
         <div className="flex flex-col items-center mb-10 relative">
           <span className="text-white font-[1000] text-8xl tracking-tighter drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">{data.score}</span>
           <div className="h-1.5 w-16 bg-fengshui-gold rounded-full my-3 shadow-[0_0_15px_rgba(251,197,49,0.8)]" />
