@@ -34,30 +34,54 @@ export const analyzeFengShui = async (lat: number, lng: number): Promise<FengShu
     { lat: lat + offset, lng: lng - offset, name: 'NW' },
   ];
 
+  const vworldApiKey = process.env.VWORLD_API_KEY;
+  if (!vworldApiKey) throw new Error('VWORLD_API_KEY is missing');
+
   const startTime = Date.now();
   let isPartial = false;
 
   try {
     let elevs: number[];
     try {
-      const elevationRes = await axios.post('https://api.open-elevation.com/api/v1/lookup', {
-        locations: samplePoints.map(p => ({ latitude: p.lat, longitude: p.lng }))
-      }, { timeout: 20000 });
+      // VWorld 고도 API (DEM) 사용 - 9개 지점 병렬 요청
+      const elevationPromises = samplePoints.map(p =>
+        axios.get('http://api.vworld.kr/req/dem', {
+          params: {
+            key: vworldApiKey,
+            service: 'dem',
+            request: 'getdem',
+            location: `${p.lng},${p.lat}`,
+            format: 'json',
+            domain: 'localhost' // 브이월드 API는 호출 도메인 인증이 엄격할 수 있습니다
+          },
+          timeout: 5000
+        }).then(res => {
+          // VWorld 응답 구조는 res.data.response.result.den 입니다.
+          // 만약 404나 에러가 나면 0을 반환하여 시뮬레이션으로 넘어가게 합니다.
+          if (res.data?.response?.status === 'NOT_FOUND' || res.data?.response?.status === 'ERROR') {
+            return 0;
+          }
+          const val = res.data?.response?.result?.den;
+          return val ? parseFloat(val) : 0;
+        })
+      );
 
-      const results = elevationRes.data.results as ElevationResult[];
-      elevs = results.map(r => r.elevation);
+      elevs = await Promise.all(elevationPromises);
+
+      // 만약 모든 고도가 0이라면 실패로 간주하고 시뮬레이션으로 전환
+      if (elevs.every(e => e === 0)) {
+        throw new Error('All elevation values returned 0');
+      }
     } catch (e) {
-      console.warn("Open-Elevation API timeout or error. Using mock elevation data.");
+      console.warn("VWorld Elevation API error. Using mock elevation data.", e);
       isPartial = true;
       // 가상 고도 데이터 생성 (에러 방지용)
-      const baseElev = Math.floor(Math.random() * 50) + 20; // 20m ~ 70m
+      const baseElev = Math.floor(Math.random() * 50) + 20;
       elevs = samplePoints.map((p, i) => {
         if (i === 0) return baseElev;
-        // 북쪽 계열(N, NE, NW)은 약간 높게 (배산 시뮬레이션)
         if (i === 1 || i === 2 || i === 8) return baseElev + (Math.random() * 15 + 5);
-        // 남쪽 계열(S, SE, SW)은 약간 낮게 (임수 시뮬레이션)
         if (i === 4 || i === 5 || i === 6) return Math.max(0, baseElev - (Math.random() * 10 + 2));
-        return baseElev + (Math.random() * 10 - 5); // 동/서
+        return baseElev + (Math.random() * 10 - 5);
       });
     }
 
