@@ -117,7 +117,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
         <RadarChart scores={data.scores} onPointClick={showDetail} />
 
         {/* 디자인 리뷰 1번: 버튼 가독성 및 클릭 유도 강화 */}
-        <div className="w-full grid grid-cols-5 gap-2 mb-10">
+        <div className="w-full grid grid-cols-5 gap-2 mb-10 relative z-10 mt-8">
           {['배산', '임수', '안정', '현대', '균형'].map((label, i) => (
             <button 
               key={i} 
@@ -130,7 +130,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
           ))}
         </div>
 
-        <div className="w-full bg-white/5 backdrop-blur-md border border-dashed border-fengshui-gold/30 rounded-[36px] p-8 relative">
+        <div className="w-full bg-white/5 backdrop-blur-md border border-dashed border-fengshui-gold/30 rounded-[36px] p-8 relative z-10 mt-2">
           <div className="absolute -top-3.5 left-10 bg-[#0c0c1e] px-4 py-0.5 rounded-full border border-fengshui-gold/30">
             <span className="text-[11px] font-[1000] text-fengshui-gold tracking-[0.1em]">풍수 총평</span>
           </div>
