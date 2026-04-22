@@ -95,10 +95,11 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
             <div className="absolute -inset-1.5 bg-fengshui-gold/20 rounded-full blur-md opacity-50 group-hover:opacity-100 transition-opacity" />
             <div className="w-20 h-20 rounded-full border-2 border-fengshui-gold/50 overflow-hidden relative shadow-2xl bg-[#1a1a2e]">
               <img 
-                src={`https://map2.daum.net/map/staticmap?AppKey=${process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&width=160&height=160&center=${data.lng},${data.lat}&level=3&marker=${data.lng},${data.lat},1`}
+                src={`/api/map-proxy?lat=${data.lat}&lng=${data.lng}`}
                 alt="분석 위치 미니맵"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                onError={(e) => (e.currentTarget.style.display = 'none')}
+                onLoad={(e) => (e.currentTarget.style.opacity = '1')}
+                style={{ opacity: 0, transition: 'opacity 0.5s' }}
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full pointer-events-none" />
             </div>
