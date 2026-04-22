@@ -92,11 +92,11 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
         </div>
 
         {data.lat && data.lng && (
-          <div className="mb-6 relative group">
-            <div className="absolute -inset-1.5 bg-fengshui-gold/20 rounded-full blur-md opacity-50 group-hover:opacity-100 transition-opacity" />
-            <div className="w-24 h-24 rounded-full border-2 border-fengshui-gold/50 overflow-hidden relative shadow-[0_0_30px_rgba(251,197,49,0.3)] bg-[#0c0c1e] flex items-center justify-center">
+          <div className="w-full px-2 mb-6 relative group">
+            <div className="absolute -inset-1 bg-fengshui-gold/20 rounded-[34px] blur-md opacity-50 group-hover:opacity-100 transition-opacity" />
+            <div className="w-full h-40 rounded-[32px] border-2 border-fengshui-gold/40 overflow-hidden relative shadow-2xl bg-[#0c0c1e]">
               <MiniMap lat={data.lat} lng={data.lng} />
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full pointer-events-none" />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[32px] pointer-events-none" />
             </div>
           </div>
         )}
