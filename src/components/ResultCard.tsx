@@ -11,13 +11,38 @@ interface ResultCardProps {
 }
 
 export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownload, isDownloading }) => {
-  const [selectedInfo, setSelectedInfo] = useState<{ label: string, reason: string } | null>(null);
+  const [selectedInfo, setSelectedInfo] = useState<{ label: string, title: string, desc: string, reason: string } | null>(null);
   const modalRef = useRef<HTMLDivElement | null>(null);
 
   const showDetail = (index: number) => {
     const labels = ['배산', '임수', '안정', '현대', '균형'];
+    const infoTexts = [
+      {
+        title: '배산(背山)',
+        desc: '뒤를 든든하게 받쳐주는 산의 기운을 뜻합니다. 방어막 역할을 하며 심리적, 물질적 안정을 줍니다. (기준: 북쪽 지형의 고도 상승폭)'
+      },
+      {
+        title: '임수(臨水)',
+        desc: '앞으로 탁 트인 물길의 기운을 뜻합니다. 재물이 모이고 순환하는 재물운의 상징입니다. (기준: 남쪽 지형의 개방감 및 인근 수계)'
+      },
+      {
+        title: '안정(安定)',
+        desc: '지형이 급격하지 않고 평탄한지를 봅니다. 삶의 굴곡을 줄이고 편안함을 줍니다. (기준: 주변 8방위 고도 편차)'
+      },
+      {
+        title: '현대(現代)',
+        desc: '전통 풍수에서는 볼 수 없던 현대적 인프라의 기운입니다. 사람과 돈이 모이는 에너지입니다. (기준: 주변 역세권 및 교통 인프라)'
+      },
+      {
+        title: '균형(均衡)',
+        desc: '좌우 지형의 높낮이 조화입니다. 청룡과 백호의 균형으로 대인관계와 건강을 상징합니다. (기준: 동서 방향의 고도 균형)'
+      }
+    ];
+
     setSelectedInfo({
       label: labels[index],
+      title: infoTexts[index].title,
+      desc: infoTexts[index].desc,
       reason: data.reasons[index]
     });
   };
@@ -90,7 +115,7 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
 
         <div className="w-full bg-white/5 backdrop-blur-md border border-dashed border-fengshui-gold/30 rounded-[36px] p-8 relative">
           <div className="absolute -top-3.5 left-10 bg-[#0c0c1e] px-4 py-0.5 rounded-full border border-fengshui-gold/30">
-            <span className="text-[11px] font-[1000] text-fengshui-gold uppercase tracking-[0.2em]">Geomancy Report</span>
+            <span className="text-[11px] font-[1000] text-fengshui-gold tracking-[0.1em]">풍수 총평 (Geomancy Report)</span>
           </div>
           <p className="text-white/90 text-lg leading-relaxed break-keep font-bold italic tracking-tight">
             "{data.analysis.total}"
@@ -114,22 +139,28 @@ export const ResultCard: React.FC<ResultCardProps> = ({ data, onReset, onDownloa
       {selectedInfo && (
         <div className="absolute inset-0 z-[100] flex items-center justify-center p-10 animate-in fade-in duration-300">
           <div className="absolute inset-0 bg-black/90 backdrop-blur-md" onClick={() => setSelectedInfo(null)} aria-hidden="true" />
-          <div ref={modalRef} role="dialog" aria-modal="true" aria-label={`${selectedInfo.label} 분석 상세`} className="bg-[#1a1a2e] w-full max-w-md rounded-[48px] p-10 border border-white/10 shadow-[0_0_100px_rgba(0,0,0,1)] relative animate-in zoom-in-95 slide-in-from-bottom-20 duration-500">
-            <button onClick={() => setSelectedInfo(null)} aria-label="상세 모달 닫기" className="absolute top-8 right-8 p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
+          <div ref={modalRef} role="dialog" aria-modal="true" aria-label={`${selectedInfo.label} 분석 상세`} className="bg-[#1a1a2e] w-full max-w-md rounded-[48px] p-8 border border-white/10 shadow-[0_0_100px_rgba(0,0,0,1)] relative animate-in zoom-in-95 slide-in-from-bottom-20 duration-500">
+            <button onClick={() => setSelectedInfo(null)} aria-label="상세 모달 닫기" className="absolute top-6 right-6 p-3 rounded-full bg-white/5 hover:bg-white/10 transition-colors">
               <X className="w-6 h-6 text-white/40" />
             </button>
-            <div className="flex items-center gap-5 mb-10">
-              <div className="w-16 h-16 rounded-[24px] bg-fengshui-gold/10 flex items-center justify-center shadow-inner">
-                <Sparkles className="w-9 h-9 text-fengshui-gold fill-fengshui-gold" />
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-14 h-14 rounded-[20px] bg-fengshui-gold/10 flex items-center justify-center shadow-inner">
+                <Sparkles className="w-7 h-7 text-fengshui-gold fill-fengshui-gold" />
               </div>
               <h3 className="text-3xl font-[1000] text-fengshui-gold tracking-tight">{selectedInfo.label} 분석</h3>
             </div>
-            <p className="text-white/90 text-2xl leading-snug font-bold break-keep mb-8 tracking-tighter">
+            
+            <div className="flex flex-col gap-2 mb-6 bg-white/5 p-4 rounded-2xl border border-white/5">
+              <h4 className="text-fengshui-gold/90 font-[900] text-sm">💡 {selectedInfo.title}이란?</h4>
+              <p className="text-white/70 text-sm leading-relaxed break-keep">{selectedInfo.desc}</p>
+            </div>
+
+            <p className="text-white/95 text-xl leading-snug font-bold break-keep mb-8 tracking-tighter">
               {selectedInfo.reason}
             </p>
-            <div className="flex items-center justify-between border-t border-white/5 pt-8">
-              <p className="text-white/20 text-sm font-bold uppercase tracking-widest">Verified GIS Algorithm</p>
-              <button onClick={() => setSelectedInfo(null)} aria-label="상세 모달 확인 후 닫기" className="text-fengshui-gold font-bold flex items-center gap-1 group">
+            <div className="flex items-center justify-between border-t border-white/10 pt-6">
+              <p className="text-white/30 text-xs font-bold uppercase tracking-widest">Verified GIS Algorithm</p>
+              <button onClick={() => setSelectedInfo(null)} aria-label="상세 모달 확인 후 닫기" className="text-fengshui-gold font-bold flex items-center gap-1 group text-sm">
                 확인 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>

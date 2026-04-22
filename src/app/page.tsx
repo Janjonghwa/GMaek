@@ -135,18 +135,19 @@ export default function Home() {
       {step === 'map' && (
         <>
           {/* Floating Onboarding Widget (Pass 1.1) */}
-          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 w-[calc(100%-48px)] max-w-sm">
-            <div className="bg-[#16213e]/90 backdrop-blur-2xl p-6 rounded-[32px] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-in slide-in-from-bottom-8 duration-1000">
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 w-[calc(100%-48px)] max-w-sm group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-fengshui-gold/20 via-purple-500/10 to-fengshui-gold/20 rounded-[34px] blur-lg opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
+            <div className="relative bg-[#111827]/80 backdrop-blur-3xl p-6 rounded-[32px] border border-white/10 border-t-white/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_20px_50px_rgba(0,0,0,0.5)] animate-in slide-in-from-bottom-8 duration-1000">
               <div className="flex items-center gap-4 mb-3">
-                <div className="w-10 h-10 rounded-full bg-fengshui-gold flex items-center justify-center shadow-[0_0_20px_rgba(251,197,49,0.5)]">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-fengshui-gold to-amber-600 flex items-center justify-center shadow-[0_0_20px_rgba(251,197,49,0.5)]">
                   <Sparkles className="w-5 h-5 text-black" />
                 </div>
                 <div>
-                  <h3 className="text-white font-[1000] text-lg leading-tight">이곳의 기운은 어떨까요?</h3>
-                  <p className="text-white/40 text-xs font-bold uppercase tracking-widest mt-0.5">Explore the Energy</p>
+                  <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/80 font-[1000] text-lg leading-tight">이곳의 기운은 어떨까요?</h3>
+                  <p className="text-fengshui-gold/60 text-xs font-[800] uppercase tracking-widest mt-0.5">Explore the Energy</p>
                 </div>
               </div>
-              <p className="text-white/60 text-[13px] font-medium leading-relaxed">
+              <p className="text-white/60 text-[13px] font-semibold leading-relaxed">
                 지도에서 명당으로 의심되는 곳을 클릭해 보세요. <br/>
                 8방위 정밀 분석으로 지맥의 흐름을 읽어드립니다.
               </p>
@@ -192,46 +193,65 @@ export default function Home() {
       )}
 
       {/* 설문 Bottom Sheet */}
-      <div className={`absolute bottom-0 left-0 w-full bg-[#16213e]/95 backdrop-blur-3xl rounded-t-[48px] z-20 transition-all duration-700 p-12 border-t border-white/10 shadow-[0_-20px_60px_rgba(0,0,0,0.5)] ${step === 'survey' ? 'translate-y-0' : 'translate-y-full'}`}>
-        <div className="w-20 h-1.5 bg-white/10 rounded-full mx-auto mb-10" />
-        <div className="flex items-center gap-4 mb-3">
-          <div className="w-12 h-12 rounded-2xl bg-fengshui-gold/10 flex items-center justify-center">
-            <Sparkles className="w-7 h-7 text-fengshui-gold fill-fengshui-gold" />
+      <div className={`absolute bottom-0 left-0 w-full z-20 transition-all duration-700 ${step === 'survey' ? 'translate-y-0' : 'translate-y-full'}`}>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-fengshui-gold/15 blur-[80px] -z-10 rounded-full pointer-events-none transition-opacity duration-1000" />
+        <div className="bg-gradient-to-b from-[#111827]/95 to-[#0a0f18]/95 backdrop-blur-3xl rounded-t-[48px] p-10 border-t border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_-20px_60px_rgba(0,0,0,0.8)]">
+          <div className="w-20 h-1.5 bg-white/10 rounded-full mx-auto mb-8 shadow-inner" />
+          <div className="flex items-center gap-4 mb-3">
+            <div className="relative w-12 h-12 rounded-2xl bg-fengshui-gold/10 flex items-center justify-center overflow-hidden border border-fengshui-gold/20">
+              <div className="absolute inset-0 bg-gradient-to-br from-fengshui-gold/20 to-transparent" />
+              <Sparkles className="w-7 h-7 text-fengshui-gold fill-fengshui-gold relative z-10 drop-shadow-[0_0_10px_rgba(251,197,49,0.8)]" />
+            </div>
+            <h2 className="text-[28px] font-[1000] tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">
+              지맥 동기화
+            </h2>
           </div>
-          <h2 className="text-3xl font-[1000] tracking-tighter text-white">지맥 동기화</h2>
-        </div>
-        <p className="text-white/40 text-lg mb-1 font-bold leading-tight">현관문을 열었을 때 거울이 바로 보이나요?</p>
-        <p className="text-fengshui-gold/60 text-sm mb-10 font-medium italic">* 가벼운 재미 요소입니다. 선택 즉시 지맥 분석이 시작됩니다.</p>
-        <div className="grid grid-cols-2 gap-5">
-          <button onClick={startAnalysis} className="group relative overflow-hidden py-6 rounded-[28px] bg-white/5 border border-white/10 font-[1000] text-xl transition-all active:scale-95 hover:bg-white/10">
-            네, 보여요
-          </button>
-          <button onClick={startAnalysis} className="group relative overflow-hidden py-6 rounded-[28px] bg-white/5 border border-white/10 font-[1000] text-xl transition-all active:scale-95 hover:bg-white/10">
-            아니요
-          </button>
+          <p className="text-white/60 text-[17px] mb-2 font-semibold leading-snug tracking-tight">현관문을 열었을 때 거울이 바로 보이나요?</p>
+          <p className="bg-clip-text text-transparent bg-gradient-to-r from-fengshui-gold/80 to-amber-500/60 text-[13px] mb-8 font-bold tracking-wide">
+            * 가벼운 재미 요소입니다. 선택 즉시 지맥 분석이 시작됩니다.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <button 
+              onClick={startAnalysis} 
+              className="group relative overflow-hidden py-5 rounded-[24px] bg-gradient-to-br from-white/10 to-white/5 border border-fengshui-gold/40 font-[1000] text-xl text-fengshui-gold transition-all active:scale-95 hover:shadow-[0_0_30px_rgba(251,197,49,0.2)] hover:border-fengshui-gold/70"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-fengshui-gold/0 via-fengshui-gold/10 to-fengshui-gold/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
+              <span className="relative z-10 drop-shadow-md">네, 보여요</span>
+            </button>
+            <button 
+              onClick={startAnalysis} 
+              className="group relative overflow-hidden py-5 rounded-[24px] bg-white/5 border border-white/10 font-[1000] text-xl text-white/80 transition-all active:scale-95 hover:bg-white/10 hover:text-white"
+            >
+              <span className="relative z-10">아니요</span>
+            </button>
+          </div>
         </div>
       </div>
 
       {/* 로딩 화면 - 8방위 정밀 스캔 시각화 (Pass 3) */}
       {step === 'loading' && (
-        <div className="absolute inset-0 bg-[#0c0c1e] z-[60] flex flex-col items-center justify-center p-10 text-center animate-in fade-in duration-500">
-          <div className="relative mb-16 w-32 h-32 flex items-center justify-center">
-            {/* 8방위 샘플링 애니메이션 */}
-            {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => (
-              <div 
-                key={angle}
-                className="absolute w-1 h-12 bg-fengshui-gold/40 rounded-full origin-bottom"
-                style={{ 
-                  transform: `rotate(${angle}deg) translateY(-24px)`,
-                  animation: `scanning 2s ease-in-out infinite`,
-                  animationDelay: `${i * 0.15}s`
-                }}
-              />
-            ))}
-            <div className="absolute w-4 h-4 bg-fengshui-gold rounded-full shadow-[0_0_30px_rgba(251,197,49,1)]" />
+        <div className="absolute inset-0 bg-[#0c0c1e]/90 backdrop-blur-md z-[60] flex flex-col items-center justify-center p-10 text-center animate-in fade-in duration-500">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-fengshui-gold/10 blur-[100px] rounded-full pointer-events-none" />
+          <div className="relative mb-16 w-40 h-40 flex items-center justify-center">
+            {/* 아우터 링 (부드러운 빛) */}
+            <div className="absolute inset-0 rounded-full border border-fengshui-gold/20 shadow-[0_0_40px_rgba(251,197,49,0.15)] animate-pulse" />
+            
+            {/* 회전하는 레이더 스캐너 (Conic Gradient) */}
+            <div className="absolute inset-2 rounded-full border border-white/5 overflow-hidden">
+              <div className="w-full h-full bg-[conic-gradient(from_0deg,transparent_70%,rgba(251,197,49,0.6)_100%)] animate-[spin_2s_linear_infinite]" />
+            </div>
+
+            {/* 이너 링 (반대 방향 회전하는 모던 궤도) */}
+            <div className="absolute inset-6 rounded-full border-t-2 border-r-2 border-fengshui-gold/40 animate-[spin_3s_linear_infinite_reverse]" />
+
+            {/* 글래스모피즘 코어 */}
+            <div className="absolute w-16 h-16 bg-white/10 backdrop-blur-md border border-fengshui-gold/40 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(251,197,49,0.4)]">
+               <div className="absolute inset-2 bg-fengshui-gold/30 rounded-full animate-ping opacity-60" />
+               <span className="text-transparent bg-clip-text bg-gradient-to-br from-amber-100 to-fengshui-gold font-[1000] text-3xl tracking-tighter drop-shadow-md">氣</span>
+            </div>
           </div>
-          <h3 className="text-3xl font-[1000] tracking-[0.2em] text-fengshui-gold mb-4 uppercase">Scanning...</h3>
-          <p className="text-white/40 text-lg font-bold tracking-widest uppercase">8-Point Terrain Analysis</p>
+          <h3 className="text-4xl font-[1000] tracking-[0.1em] text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-fengshui-gold to-yellow-600 mb-4 drop-shadow-md">기운 감정 중...</h3>
+          <p className="text-white/50 text-lg font-semibold tracking-widest">팔괘(八卦) 지형 정밀 스캔</p>
         </div>
       )}
 
@@ -264,9 +284,9 @@ export default function Home() {
             isDownloading={isSaving} 
           />
           {analysisData.isPartial && (
-            <div className="absolute top-24 left-1/2 -translate-x-1/2 z-[80] bg-red-500/20 backdrop-blur-md px-4 py-2 rounded-full border border-red-500/30 flex items-center gap-2 animate-pulse">
-              <AlertCircle className="w-4 h-4 text-red-400" />
-              <span className="text-[11px] font-bold text-red-200">일부 데이터(POI) 분석이 누락되었습니다.</span>
+            <div className="absolute top-24 left-1/2 -translate-x-1/2 z-[80] bg-amber-500/20 backdrop-blur-md px-4 py-2 rounded-full border border-amber-500/30 flex items-center gap-2 animate-pulse">
+              <AlertCircle className="w-4 h-4 text-amber-400" />
+              <span className="text-[11px] font-bold text-amber-200">일부 데이터(지형/상권) 응답 지연으로 가상 기운이 혼합되었습니다.</span>
             </div>
           )}
         </div>
